@@ -12,9 +12,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/main.fxml")));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/main.fxml"));
         Scene sc = new Scene(root);
-        primaryStage.initStyle(StageStyle.UNDECORATED);
+
+        //primaryStage.initStyle(StageStyle.UNDECORATED);
 
         //Move the page around the screen
         root.setOnMousePressed(mouseEvent -> {

@@ -20,11 +20,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" stylesheets="@../css/Styling.css" vgap="10" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Controller">
+<GridPane alignment="center" hgap="10" stylesheets="@../css/Styling.css" vgap="10" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
    <children>
-      <AnchorPane prefHeight="645.0" prefWidth="959.0" stylesheets="@../css/Styling.css">
+      <AnchorPane stylesheets="@../css/Styling.css" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
          <children>
-            <BorderPane layoutX="-14.0" prefHeight="645.0" prefWidth="974.0" stylesheets="@../css/Styling.css">
+            <BorderPane layoutX="-14.0" prefHeight="645.0" prefWidth="974.0" stylesheets="@../css/Styling.css" AnchorPane.bottomAnchor="0.0">
                <left>
                   <VBox prefHeight="545.0" prefWidth="154.0" stylesheets="@../css/Styling.css" BorderPane.alignment="CENTER">
                      <children>
@@ -166,7 +166,7 @@
                <center>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <top>
-                        <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+                        <TabPane prefHeight="582.0" prefWidth="820.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
                           <tabs>
                             <Tab text="Members">
                               <content>
@@ -220,6 +220,22 @@
                                                 <Insets top="30.0" />
                                              </padding>
                                           </HBox>
+                                          <TableView fx:id="tableView" editable="true" layoutY="160.0" prefHeight="600.0" prefWidth="820.0">
+                                            <columns>
+                                              <TableColumn fx:id="tcName" prefWidth="75.0" text="Name" />
+                                              <TableColumn fx:id="tcLastname" prefWidth="75.0" text="Lastname" />
+                                                <TableColumn fx:id="tcAge" prefWidth="75.0" text="Age" />
+                                                <TableColumn fx:id="tcAddress" prefWidth="75.0" text="Address" />
+                                                <TableColumn fx:id="tcPhone" prefWidth="75.0" text="Phone" />
+                                                <TableColumn fx:id="tcAction" prefWidth="75.0" text="Action" />
+                                            </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                             <padding>
+                                                <Insets bottom="200.0" />
+                                             </padding>
+                                          </TableView>
                                        </children></AnchorPane>
                               </content>
                             </Tab>
@@ -235,22 +251,7 @@
                         </TabPane>
                      </top>
                      <center>
-                        <VBox prefHeight="383.0" prefWidth="819.0" style="-fx-background-color: #dcdcdc;" BorderPane.alignment="CENTER">
-                           <children>
-                              <TableView editable="true" prefHeight="410.0" prefWidth="820.0">
-                                <columns>
-                                  <TableColumn prefWidth="75.0" text="Name" />
-                                  <TableColumn prefWidth="75.0" text="Lastname" />
-                                    <TableColumn prefWidth="75.0" text="Age" />
-                                    <TableColumn prefWidth="75.0" text="Address" />
-                                    <TableColumn prefWidth="75.0" text="Ip Address" />
-                                    <TableColumn prefWidth="75.0" text="Age" />
-                                </columns>
-                                 <columnResizePolicy>
-                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                 </columnResizePolicy>
-                              </TableView>
-                           </children></VBox>
+                        <VBox prefHeight="383.0" prefWidth="819.0" style="-fx-background-color: #dcdcdc;" BorderPane.alignment="CENTER" />
                      </center>
                   </BorderPane>
                </center>
