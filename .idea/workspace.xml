@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/fxml/addNewUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="## addNewUser.fxml &#10;## import.fxml">
+      <change afterPath="$PROJECT_DIR$/src/icons/csv.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/import.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ManagementToolApplication/fxml/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ManagementToolApplication/fxml/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ManagementToolApplication/css/Styling.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ManagementToolApplication/css/Styling.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/Styling.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/Styling.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxml/addNewUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/addNewUser.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxml/import.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/import.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fxml/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +80,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1yXgvBkNnSjfa4hiAqlNdJfPK9N" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
@@ -221,8 +225,16 @@
       <workItem from="1632409410528" duration="259000" />
       <workItem from="1632411645503" duration="14539000" />
       <workItem from="1632471976860" duration="708000" />
-      <workItem from="1632486194020" duration="10617000" />
+      <workItem from="1632486194020" duration="13672000" />
     </task>
+    <task id="LOCAL-00001" summary="## addNewUser.fxml &#10;## import.fxml">
+      <created>1632506313144</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1632506313144</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,6 +243,8 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <MESSAGE value="## addNewUser.fxml &#10;## import.fxml" />
+    <option name="LAST_COMMIT_MESSAGE" value="## addNewUser.fxml &#10;## import.fxml" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="198" key="#Project_Structure" timestamp="1632414339268">
@@ -249,6 +263,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="690" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080/-1440.174.1440.900@0.0.1920.1080" timestamp="1632429380105" />
+    <state x="529" y="134" key="CommitChangelistDialog2" timestamp="1632506312026">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="529" y="134" key="CommitChangelistDialog2/0.0.1920.1080/1920.174.1440.900@0.0.1920.1080" timestamp="1632506312026" />
     <state x="260" y="285" key="FileChooserDialogImpl" timestamp="1632411790359">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -258,29 +276,29 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="782" y="456" key="Github.CreateGistDialog/0.0.1920.1080/-1440.174.1440.900@0.0.1920.1080" timestamp="1632430797286" />
-    <state width="1877" height="301" key="GridCell.Tab.0.bottom" timestamp="1632505794582">
+    <state width="1877" height="301" key="GridCell.Tab.0.bottom" timestamp="1632507808231">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1877" height="301" key="GridCell.Tab.0.bottom/0.0.1920.1080/-1440.174.1440.900@0.0.1920.1080" timestamp="1632431243012" />
-    <state width="1877" height="301" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.174.1440.900@0.0.1920.1080" timestamp="1632505794582" />
+    <state width="1877" height="301" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.174.1440.900@0.0.1920.1080" timestamp="1632507808231" />
     <state width="958" height="298" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1632409678958" />
-    <state width="1877" height="301" key="GridCell.Tab.0.center" timestamp="1632505794581">
+    <state width="1877" height="301" key="GridCell.Tab.0.center" timestamp="1632507808230">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1877" height="301" key="GridCell.Tab.0.center/0.0.1920.1080/-1440.174.1440.900@0.0.1920.1080" timestamp="1632431243012" />
-    <state width="1877" height="301" key="GridCell.Tab.0.center/0.0.1920.1080/1920.174.1440.900@0.0.1920.1080" timestamp="1632505794581" />
+    <state width="1877" height="301" key="GridCell.Tab.0.center/0.0.1920.1080/1920.174.1440.900@0.0.1920.1080" timestamp="1632507808230" />
     <state width="958" height="298" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1632409678957" />
-    <state width="1877" height="301" key="GridCell.Tab.0.left" timestamp="1632505794581">
+    <state width="1877" height="301" key="GridCell.Tab.0.left" timestamp="1632507808230">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1877" height="301" key="GridCell.Tab.0.left/0.0.1920.1080/-1440.174.1440.900@0.0.1920.1080" timestamp="1632431243012" />
-    <state width="1877" height="301" key="GridCell.Tab.0.left/0.0.1920.1080/1920.174.1440.900@0.0.1920.1080" timestamp="1632505794581" />
+    <state width="1877" height="301" key="GridCell.Tab.0.left/0.0.1920.1080/1920.174.1440.900@0.0.1920.1080" timestamp="1632507808230" />
     <state width="958" height="298" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1632409678956" />
-    <state width="1877" height="301" key="GridCell.Tab.0.right" timestamp="1632505794581">
+    <state width="1877" height="301" key="GridCell.Tab.0.right" timestamp="1632507808230">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1877" height="301" key="GridCell.Tab.0.right/0.0.1920.1080/-1440.174.1440.900@0.0.1920.1080" timestamp="1632431243012" />
-    <state width="1877" height="301" key="GridCell.Tab.0.right/0.0.1920.1080/1920.174.1440.900@0.0.1920.1080" timestamp="1632505794581" />
+    <state width="1877" height="301" key="GridCell.Tab.0.right/0.0.1920.1080/1920.174.1440.900@0.0.1920.1080" timestamp="1632507808230" />
     <state width="958" height="298" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1632409678957" />
     <state x="0" y="118" key="SettingsEditor" timestamp="1632423066643">
       <screen x="0" y="0" width="1920" height="1080" />

@@ -32,3 +32,15 @@ VBox{
     -fx-background-color: #494747;
     -fx-text-fill: white;
 }
+
+
+/*ADDMEMBER.FXML*/
+#addMember-btn{
+    -fx-background-color:   #fc656a;
+    -fx-text-fill: white;
+}
+
+#addMember-btn:pressed{
+    -fx-background-color: white;
+    -fx-text-fill:   #fc656a;
+}

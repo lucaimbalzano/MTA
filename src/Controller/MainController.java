@@ -2,12 +2,14 @@ package Controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -38,6 +40,8 @@ public class MainController implements Initializable {
 
     private ObservableList<User> data;
 
+    @FXML private Button btnAdd, btnImport, btnExport;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tcAction.setCellValueFactory(new PropertyValueFactory<>("Action"));
@@ -57,4 +61,11 @@ public class MainController implements Initializable {
 
 
     }
+
+    @FXML
+    void handleButtonClick(ActionEvent event) {
+
+    }
+
+
 }

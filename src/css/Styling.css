@@ -32,3 +32,23 @@ VBox{
     -fx-background-color: #494747;
     -fx-text-fill: white;
 }
+
+
+/*ADDMEMBER.FXML*/
+#addMember-btn{
+    -fx-background-color:   #fc656a;
+    -fx-text-fill: white;
+}
+
+#addMember-btn:pressed{
+    -fx-background-color: white;
+    -fx-text-fill:   #fc656a;
+}
+
+
+/*PANE-IMPORT*/
+#pane-import{
+    -fx-border-color: #fc656a;
+    -fx-background-color: #F3CDCD;
+    -fx-border-radius: 5;
+}

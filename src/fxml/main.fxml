@@ -182,7 +182,7 @@
                                                       <Insets left="50.0" top="30.0" />
                                                    </padding>
                                                 </Label>
-                                                <Button id="btn_members" mnemonicParsing="false" prefHeight="30.0" prefWidth="57.0" style="-fx-background-color: #dddddd;" text="Add">
+                                                <Button id="btn_members" fx:id="btnAdd" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="30.0" prefWidth="57.0" style="-fx-background-color: #dddddd;" text="Add">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
@@ -193,7 +193,7 @@
                                                       <Insets left="30.0" top="30.0" />
                                                    </HBox.margin>
                                                 </Button>
-                                                <Button id="btn_members" mnemonicParsing="false" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: #dddddd;" text="Import Members">
+                                                <Button id="btn_members" fx:id="btnImport" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: #dddddd;" text="Import Members">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
@@ -204,7 +204,7 @@
                                                       <Insets left="25.0" top="30.0" />
                                                    </HBox.margin>
                                                 </Button>
-                                                <Button id="btn_members" mnemonicParsing="false" prefHeight="30.0" prefWidth="165.0" style="-fx-background-color: #dddddd;" text="Export Members (Excel)">
+                                                <Button id="btn_members" fx:id="btnExport" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="30.0" prefWidth="165.0" style="-fx-background-color: #dddddd;" text="Export Members (Excel)">
                                                    <font>
                                                       <Font size="13.0" />
                                                    </font>
