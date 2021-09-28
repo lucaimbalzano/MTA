@@ -15,7 +15,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/main.fxml"));
         Scene sc = new Scene(root);
 
-       primaryStage.initStyle(StageStyle.UNDECORATED);
+      // primaryStage.initStyle(StageStyle.UNDECORATED);
 
         //Move the page around the screen
         root.setOnMousePressed(mouseEvent -> {
@@ -28,6 +28,7 @@ public class Main extends Application {
         });
         root.mouseTransparentProperty();
         primaryStage.setScene(sc);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 

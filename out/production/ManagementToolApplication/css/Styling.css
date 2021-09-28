@@ -44,3 +44,11 @@ VBox{
     -fx-background-color: white;
     -fx-text-fill:   #fc656a;
 }
+
+
+/*PANE-IMPORT*/
+#pane-import{
+    -fx-border-color: #fc656a;
+    -fx-background-color: #F3CDCD;
+    -fx-border-radius: 5;
+}
