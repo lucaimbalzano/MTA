@@ -10,6 +10,8 @@ public class User {
     SimpleStringProperty Phone;
     SimpleStringProperty Action;
 
+    public User(){}
+
     public User(String name, String lastname, String age, String address, String phone, String action) {
         Name = new SimpleStringProperty(name);
         Lastname = new SimpleStringProperty(lastname);
