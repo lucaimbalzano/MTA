@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddUserController">
    <children>
       <Button id="addMember-btn" fx:id="btnAddMember" layoutX="359.0" layoutY="318.0" mnemonicParsing="false" onAction="#addMemberOnClick" prefHeight="34.0" prefWidth="138.0" stylesheets="@../css/Styling.css" text="Add Member">
          <effect>
@@ -21,11 +21,10 @@
          </effect></Button>
       <TextField fx:id="txtName" layoutX="80.0" layoutY="137.0" promptText="Name" />
       <TextField fx:id="txtLastname" layoutX="348.0" layoutY="137.0" promptText="Lastname" />
-      <TextField fx:id="txtEmail" layoutX="80.0" layoutY="188.0" promptText="Email" />
       <TextField fx:id="txtAddress" layoutX="348.0" layoutY="188.0" promptText="Full Address" />
-      <TextField fx:id="txtPhone" layoutX="80.0" layoutY="237.0" promptText="Phone" />
+      <TextField fx:id="txtPhone" layoutX="80.0" layoutY="188.0" promptText="Phone" />
       <TextField fx:id="txtAge" layoutX="348.0" layoutY="237.0" promptText="Age" />
-      <TextField fx:id="txtAction" layoutX="80.0" layoutY="293.0" promptText="Action" />
+      <TextField fx:id="txtAction" layoutX="80.0" layoutY="237.0" promptText="Action" />
       <Pane prefHeight="85.0" prefWidth="600.0" style="-fx-background-color: #fc656a;">
          <children>
             <ImageView fitHeight="25.0" fitWidth="20.0" layoutX="32.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">

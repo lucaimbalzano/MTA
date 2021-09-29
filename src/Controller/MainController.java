@@ -111,10 +111,6 @@ public class MainController implements Initializable {
         }
     }
 
-    @FXML
-    void addMemberOnClick(ActionEvent event) {
-
-    }
 
     private void showDialog(String fxml){
        try {
