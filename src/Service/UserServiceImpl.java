@@ -16,7 +16,7 @@ public class UserServiceImpl implements IUserService {
     @Override
     public Boolean addUser(User user) {
         BasicConfigurator.configure();
-        String preparedSql = "INSERT INTO CUSTOMERS (Name,Lastname,Age,Address,Phone,Action) VALUES (?,?,?)";
+        String preparedSql = "INSERT INTO USER (Name,Lastname,Age,Address,Phone,Action) VALUES (?,?,?,?,?,?)";
 //        user.getName(),user.getLastname(),user.getAddress(), user.getPhone(),user.getAge(), user.getAction()
         int result = 0;
         int cont = 0 ;
@@ -27,7 +27,8 @@ public class UserServiceImpl implements IUserService {
             //Creates a PreparedStatement object for sending parameterized SQL statements to the database
             preparedStmt = conn.prepareStatement(preparedSql);
             preparedStmt.setString(++cont, user.getName());
-            preparedStmt.setString(++cont, user.getAge());
+            preparedStmt.setString(++cont, user.getLastname());
+            preparedStmt.setInt(++cont, Integer.parseInt(user.getAge()));
             preparedStmt.setString(++cont, user.getAddress());
             preparedStmt.setString(++cont, user.getPhone());
             preparedStmt.setString(++cont, user.getAction());
@@ -38,7 +39,7 @@ public class UserServiceImpl implements IUserService {
                 return true;
             }
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             logger.debug("### Error occured inside addUser(): "+e.getMessage()+" ###");
             e.printStackTrace();
             logger.debug("### End stackTraceError ###");

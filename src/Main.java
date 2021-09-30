@@ -3,6 +3,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.apache.log4j.BasicConfigurator;
@@ -21,20 +22,21 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/main.fxml"));
         Scene sc = new Scene(root);
 
-      // primaryStage.initStyle(StageStyle.UNDECORATED);
+      primaryStage.initStyle(StageStyle.TRANSPARENT);
 
         //Move the page around the screen
-        root.setOnMousePressed(mouseEvent -> {
-            x = mouseEvent.getSceneX();
-            y = mouseEvent.getSceneY();
-        });
-        root.setOnMouseDragged(mouseEvent -> {
-            primaryStage.setX(mouseEvent.getScreenX());
-            primaryStage.setY(mouseEvent.getScreenY());
-        });
+//        root.setOnMousePressed(mouseEvent -> {
+//            x = mouseEvent.getSceneX();
+//            y = mouseEvent.getSceneY();
+//        });
+//        root.setOnMouseDragged(mouseEvent -> {
+//            primaryStage.setX(mouseEvent.getScreenX());
+//            primaryStage.setY(mouseEvent.getScreenY());
+//        });
         root.mouseTransparentProperty();
         primaryStage.setScene(sc);
         primaryStage.setResizable(false);
+        primaryStage.getIcons().add(new Image("/icons/iconLogo.png"));
         primaryStage.show();
     }
 

@@ -9,12 +9,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -55,9 +58,11 @@ public class MainController implements Initializable {
     @FXML
     private TableColumn<User,String> tcAction;
 
-    private ObservableList<User> data;
-
     @FXML private Button btnAdd, btnImport, btnExport;
+
+    private ObservableList<User> data;
+    Double xCordinate, yCordinate;
+
 
     DatabaseConnections databaseConnections = new DatabaseConnections();
     Connection conn = databaseConnections.getConnection();
@@ -99,6 +104,19 @@ public class MainController implements Initializable {
     }
 
     @FXML
+    void topBarOnMouseDragged(MouseEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setX(event.getScreenX() -xCordinate);
+        stage.setY(event.getScreenY()-yCordinate);
+    }
+
+    @FXML
+    void topBarOnMousePressed(MouseEvent event) {
+        this.xCordinate = event.getSceneX();
+        this.yCordinate = event.getSceneY();
+    }
+
+    @FXML
     void handleButtonClick(ActionEvent event) {
         if(event.getSource() == btnAdd){
                 showDialog("addNewUser");
@@ -111,6 +129,18 @@ public class MainController implements Initializable {
         }
     }
 
+    @FXML
+    void closeMainWindow(MouseEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
+    void iconifiedMainWindow(MouseEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setIconified(true);
+    }
+
 
     private void showDialog(String fxml){
        try {
@@ -118,8 +148,9 @@ public class MainController implements Initializable {
             Stage stage = new Stage();
             Scene scene = new Scene(loader);
             stage.setScene(scene);
-           stage.setResizable(false);
-           stage.initStyle(StageStyle.UNDECORATED);
+            stage.getIcons().add(new Image("/icons/iconLogo.png"));
+            stage.setResizable(false);
+            stage.initStyle(StageStyle.UNDECORATED);
             stage.show();
 
        }catch (IOException e){

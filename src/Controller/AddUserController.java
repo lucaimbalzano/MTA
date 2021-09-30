@@ -8,10 +8,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 
 import model.User;
@@ -23,6 +27,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AddUserController implements Initializable {
+
+    Double xCordinate, yCordinate;
 
     @FXML
     private TextField txtName;
@@ -52,21 +58,58 @@ public class AddUserController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         BasicConfigurator.configure();
 
-
     }
 
     @FXML
     void addMemberOnClick(ActionEvent event) {
         Window owner = btnAddMember.getScene().getWindow();
+
+
         if(checkAllTxtParameters(owner)){
-            logger.debug("User name:"+txtName);
-            userServiceImpl.addUser(new User(txtName.getText(),txtLastname.getText(),txtAge.getText(),txtPhone.getText(),txtAddress.getText(),txtAction.getText()));
-            showAlert(Alert.AlertType.CONFIRMATION, owner, "Success",
-                    "You Added with Success");
+            logger.debug("User name:"+txtName.getText());
+           if(userServiceImpl.addUser(new User(txtName.getText(),txtLastname.getText(),txtAge.getText(),txtPhone.getText(),txtAddress.getText(),txtAction.getText()))){
+               showAlert(Alert.AlertType.CONFIRMATION, owner, "Success","You Added with Success");
+                txtName.setText("");
+                txtLastname.setText("");
+                txtAction.setText("");
+                txtAddress.setText("");
+                txtAge.setText("");
+                txtPhone.setText("");
+                owner.getOnCloseRequest();
+           }
+            else{
+               showAlert(Alert.AlertType.ERROR, owner, "Error",
+                       "Error while Adding the user");
+           }
+
         }
 
-        showAlert(Alert.AlertType.ERROR, owner, "Error",
-                "Error while Adding the user");
+
+    }
+    @FXML
+    void closeWindowAddMemberR(MouseEvent event) {
+        logger.info("### Window AddNewMember closed ###");
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
+    }
+    @FXML
+    void minusWindowAddMemberL(MouseEvent event) {
+        logger.info("### Window AddNewMember iconified ###");
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+        @FXML
+    void topBarOnMouseDragged(MouseEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setX(event.getScreenX() -xCordinate);
+        stage.setY(event.getScreenY()-yCordinate);
+    }
+
+    @FXML
+    void topBarOnMousePressed(MouseEvent event) {
+        this.xCordinate = event.getSceneX();
+        this.yCordinate = event.getSceneY();
     }
 
     private static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
