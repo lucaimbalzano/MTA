@@ -12,9 +12,13 @@ import org.apache.log4j.Logger;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook
+
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ImportController implements Initializable {
 
@@ -31,18 +35,9 @@ public class ImportController implements Initializable {
     }
 
     @FXML
-    void onClickedimportCSV(MouseEvent event) {
-
-    try{
-        FileInputStream fileIn = new FileInputStream(new File("Members.xlsx"));
-        XSSFWorkbook workbook = new XSSFWorkbook(fileIn);
-
-    }catch(FileNotFoundException fe)
-    {
-        logger.debug(" ### Exception Occurred: "+fe.getMessage()+" ###");
-        fe.printStackTrace();
-        logger.debug(" ### End StackTraceException ###");
-    }
+    void onClickedimportCSV(MouseEvent event)  {
+        logger.info("### Inside onClickedimportCSV() ###");
+        userServiceImpl.importUserFromExcel("");
 
     }
 }
