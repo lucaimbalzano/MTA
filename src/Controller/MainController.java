@@ -3,6 +3,9 @@ package Controller;
 import Connections.DatabaseConnections;
 
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import javafx.animation.Animation;
+import javafx.animation.RotateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -31,6 +34,7 @@ import java.sql.Statement;
 
 import java.util.ResourceBundle;
 
+import javafx.util.Duration;
 import model.User;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
@@ -58,7 +62,12 @@ public class MainController implements Initializable {
     @FXML
     private TableColumn<User,String> tcAction;
 
-    @FXML private Button btnAdd, btnImport, btnExport;
+    @FXML
+    private Button btnAdd, btnImport, btnExport;
+
+
+    @FXML
+    private FontAwesomeIconView iconRefreshTable;
 
     private ObservableList<User> data;
     Double xCordinate, yCordinate;
@@ -98,6 +107,47 @@ public class MainController implements Initializable {
             logger.debug(" ### Exception Occurred: "+e.getMessage()+" ###");
             e.printStackTrace();
            logger.debug(" ### End StackTraceException ###");
+        }
+        tableView.setItems(data);
+        logger.debug("### Data set into TableView ###");
+    }
+
+
+    @FXML
+    void onClickRefreshTable(MouseEvent event) {
+        logger.debug("### Refresh Table ###");
+//        RotateTransition rotation = new RotateTransition(Duration.seconds(0.5), iconRefreshTable);
+//        rotation.setCycleCount(Animation.INDEFINITE);
+//        rotation.setByAngle(360);
+//        iconRefreshTable.setOnMouseEntered(e -> rotation.play());
+//        iconRefreshTable.setOnMouseExited(e -> rotation.pause());
+        //iconRefreshTable.setStyle("-fx-text-fill: gray");
+
+        BasicConfigurator.configure();
+
+        tcAction.setCellValueFactory(new PropertyValueFactory<>("Action"));
+        tcName.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        tcLastname.setCellValueFactory(new PropertyValueFactory<>("Lastname"));
+        tcAge.setCellValueFactory(new PropertyValueFactory<>("Age"));
+        tcAddress.setCellValueFactory(new PropertyValueFactory<>("Address"));
+        tcPhone.setCellValueFactory(new PropertyValueFactory<>("Phone"));
+        Statement statement;
+        try {
+
+            data = FXCollections.observableArrayList();
+            statement = conn.createStatement();
+            ResultSet queryOutput = statement.executeQuery(query);
+
+            while(queryOutput.next()){
+                data.add(new User(queryOutput.getString("Name"),queryOutput.getString("Lastname"), queryOutput.getString("Age"), queryOutput.getString("Address"),queryOutput.getString("Phone"),"N/A"));
+            }
+
+            logger.debug("### Users Data Retrived ###");
+
+        } catch (SQLException e) {
+            logger.debug(" ### Exception Occurred: "+e.getMessage()+" ###");
+            e.printStackTrace();
+            logger.debug(" ### End StackTraceException ###");
         }
         tableView.setItems(data);
         logger.debug("### Data set into TableView ###");
