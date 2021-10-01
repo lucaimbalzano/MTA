@@ -1,4 +1,12 @@
 /*Color gradient*/
-.colorBackground{
-    -fx-background-color: linear-gradient( to right top,#facd68, #fc76b3);
+#pnLeftGrid, #btnLogin, #hBoxSignup{
+    -fx-background-color: linear-gradient( to right top,#fc665d, #fc908b);
+}
+
+#btnSigupTo{
+    -fx-background-color: linear-gradient( to right top, #fc7d6c, #fcbeae);
+}
+
+#pnRightGrid, #pnSignupGridBottom{
+    -fx-background-color: linear-gradient( to right top, #b7b7b7, #ffffff);
 }

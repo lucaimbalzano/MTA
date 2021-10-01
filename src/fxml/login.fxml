@@ -1,66 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-    <children>
-        <AnchorPane layoutX="224.0" layoutY="76.0" prefHeight="249.0" prefWidth="310.0" style="-fx-background-radius: 25; -fx-background-color: white;">
-            <children>
-                <JFXTextField layoutX="72.0" layoutY="53.0" prefHeight="25.0" prefWidth="174.0" promptText="Enter Login">
-                    <focusColor>
-                        <LinearGradient endX="1.0" endY="1.0">
-                            <stops>
-                                <Stop>
-                                    <color>
-                                        <Color red="0.9803921580314636" green="0.8039215803146362" blue="0.40784314274787903" />
-                                    </color>
-                                </Stop>
-                                <Stop offset="1.0">
-                                    <color>
-                                        <Color red="0.9882352948188782" green="0.4627451002597809" blue="0.7019608020782471" />
-                                    </color>
-                                </Stop>
-                            </stops>
-                        </LinearGradient>
-                    </focusColor>
-                </JFXTextField>
-                <JFXTextField layoutX="72.0" layoutY="109.0" prefHeight="25.0" prefWidth="174.0" promptText="Enter Password">
-                    <focusColor>
-                        <LinearGradient endX="1.0" endY="1.0">
-                            <stops>
-                                <Stop>
-                                    <color>
-                                        <Color red="0.9803921580314636" green="0.8039215803146362" blue="0.40784314274787903" />
-                                    </color>
-                                </Stop>
-                                <Stop offset="1.0">
-                                    <color>
-                                        <Color red="0.9882352948188782" green="0.4627451002597809" blue="0.7019608020782471" />
-                                    </color>
-                                </Stop>
-                            </stops>
-                        </LinearGradient>
-                    </focusColor>
-                </JFXTextField>
-                <JFXButton buttonType="RAISED" layoutX="112.0" layoutY="176.0" prefHeight="41.0" prefWidth="87.0" styleClass="colorBackground" stylesheets="@color.css" text="Login" />
-            </children>
-        </AnchorPane>
-        <AnchorPane fx:id="sideBar" layoutX="31.0" layoutY="53.0" prefHeight="295.0" prefWidth="220.0" style="-fx-background-radius: 25;" styleClass="colorBackground" stylesheets="@color.css">
-            <children>
-                <JFXButton layoutX="182.0" layoutY="14.0" text="X" />
-            </children>
-        </AnchorPane>
-    </children>
+<AnchorPane prefHeight="457.0" prefWidth="848.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <GridPane layoutX="-1.0" prefHeight="458.0" prefWidth="848.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <GridPane fx:id="pnLeftGrid" stylesheets="@../css/color.css" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="136.0" minWidth="10.0" prefWidth="16.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="379.0" minWidth="10.0" prefWidth="369.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="112.0" minWidth="8.0" prefWidth="18.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="145.0" minHeight="2.0" prefHeight="11.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="418.0" minHeight="10.0" prefHeight="418.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="83.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Pane prefHeight="272.0" prefWidth="376.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <ImageView fitHeight="18.0" fitWidth="40.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/logo.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="29.0" layoutY="1.0" text="MTA 福 " textFill="WHITE">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="21.0" layoutY="33.0" text="Management Tool Application ®" textFill="WHITE" />
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-71.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/sakura.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <padding>
+                        <Insets top="50.0" />
+                     </padding>
+                     <GridPane.margin>
+                        <Insets left="50.0" top="100.0" />
+                     </GridPane.margin>
+                  </Pane>
+               </children>
+            </GridPane>
+            <GridPane fx:id="pnRightGrid" stylesheets="@../css/color.css" GridPane.columnIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="134.0" minWidth="7.0" prefWidth="21.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="396.0" minWidth="10.0" prefWidth="371.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="115.0" minWidth="0.0" prefWidth="25.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="143.0" minHeight="0.0" prefHeight="14.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="418.0" minHeight="10.0" prefHeight="414.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Pane prefHeight="417.0" prefWidth="228.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <TextField fx:id="txtUsername" layoutX="88.0" layoutY="159.0" prefHeight="40.0" prefWidth="190.0">
+                           <effect>
+                              <DropShadow height="3.21" radius="1.105" width="3.21" />
+                           </effect>
+                        </TextField>
+                        <Label layoutX="149.0" layoutY="77.0" prefHeight="40.0" prefWidth="90.0" text="Login" textFill="#fc665d">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="32.0" fitWidth="29.0" layoutX="363.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/logoHappiness.png" />
+                           </image>
+                        </ImageView>
+                        <PasswordField fx:id="txtPasswordLogin" layoutX="88.0" layoutY="229.0" prefHeight="40.0" prefWidth="190.0">
+                           <effect>
+                              <DropShadow height="3.21" radius="1.105" width="3.21" />
+                           </effect>
+                        </PasswordField>
+                        <Button fx:id="btnLogin" contentDisplay="RIGHT" layoutX="42.0" layoutY="302.0" mnemonicParsing="false" onAction="#onActionLogin" prefHeight="32.0" prefWidth="145.0" stylesheets="@../css/color.css" text="Login" textFill="WHITE">
+                           <effect>
+                              <DropShadow height="4.0" radius="1.5" width="4.0" />
+                           </effect>
+                        </Button>
+                        <Button fx:id="btnSigupTo" contentDisplay="RIGHT" layoutX="205.0" layoutY="302.0" mnemonicParsing="false" onMouseClicked="#onClickedGoToSignup" prefHeight="32.0" prefWidth="145.0" stylesheets="@../css/color.css" text="Signup" textFill="WHITE">
+                           <effect>
+                              <DropShadow height="4.0" radius="1.5" width="4.0" />
+                           </effect>
+                        </Button>
+                        <Line endX="236.0" layoutX="115.0" startX="-115.0" stroke="#fc908b" strokeWidth="6.0" />
+                        <Line endX="-115.0" endY="414.0" layoutX="115.0" layoutY="3.0" startX="-115.0" stroke="#fc908b" strokeWidth="6.0" />
+                        <Line endX="-115.0" endY="428.0" layoutX="115.0" layoutY="-8.0" startX="258.0" startY="428.0" stroke="#fc908b" strokeWidth="6.0" />
+                        <Line endX="-115.0" endY="414.0" layoutX="488.0" layoutY="3.0" startX="-115.0" startY="29.0" stroke="#fc908b" strokeWidth="6.0" />
+                        <CheckBox fx:id="showPassword" layoutX="255.0" layoutY="241.0" mnemonicParsing="false" />
+                     </children>
+                  </Pane>
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+   </children>
+   <effect>
+      <DropShadow />
+   </effect>
 </AnchorPane>
-

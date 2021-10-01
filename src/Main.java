@@ -19,20 +19,11 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         logger.debug("### Application  MTA福 Started ###");
 
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/main.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/login.fxml"));
         Scene sc = new Scene(root);
 
       primaryStage.initStyle(StageStyle.TRANSPARENT);
 
-        //Move the page around the screen
-//        root.setOnMousePressed(mouseEvent -> {
-//            x = mouseEvent.getSceneX();
-//            y = mouseEvent.getSceneY();
-//        });
-//        root.setOnMouseDragged(mouseEvent -> {
-//            primaryStage.setX(mouseEvent.getScreenX());
-//            primaryStage.setY(mouseEvent.getScreenY());
-//        });
         root.mouseTransparentProperty();
         primaryStage.setScene(sc);
         primaryStage.setResizable(false);
