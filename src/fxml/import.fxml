@@ -63,4 +63,7 @@
          </effect>
       </Label>
    </children>
+   <effect>
+      <DropShadow />
+   </effect>
 </AnchorPane>

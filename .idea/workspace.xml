@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be845eb6-cf03-4782-aead-216876fbebcd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/SignupController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Encryptor/Encryptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/icons/logoHappiness.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/icons/sakura.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/icons/samurai.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/color.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/color.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fxml/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxml/addNewUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/addNewUser.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxml/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/main.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fxml/signup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/signup.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +87,7 @@
       <updated>1632842785351</updated>
       <workItem from="1632842788849" duration="46582000" />
       <workItem from="1633074208601" duration="5909000" />
-      <workItem from="1633082179945" duration="9128000" />
+      <workItem from="1633082179945" duration="9436000" />
     </task>
     <task id="LOCAL-00001" summary="## Connection Database Mysql&#10;## Show Table content">
       <created>1632910398954</created>
@@ -159,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633080313162</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="## LoginController; SignupController.java">
+      <created>1633088782493</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1633088782494</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,7 +175,8 @@
     <MESSAGE value="## Import from Excel to Database" />
     <MESSAGE value="## Utility.java &amp;&amp; RefreshTable" />
     <MESSAGE value="## Menu and Path - MainController.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="## Menu and Path - MainController.java" />
+    <MESSAGE value="## LoginController; SignupController.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="## LoginController; SignupController.java" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="198" key="#Project_Structure" timestamp="1632997123783">
@@ -202,10 +203,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="690" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1632993289482" />
-    <state x="585" y="134" key="CommitChangelistDialog2" timestamp="1633081817043">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="-1163" y="219" width="749" height="613" key="CommitChangelistDialog2" timestamp="1633088781293">
+      <screen x="-1440" y="95" width="1440" height="900" />
     </state>
-    <state x="585" y="134" key="CommitChangelistDialog2/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633081817043" />
+    <state x="-1163" y="219" width="749" height="613" key="CommitChangelistDialog2/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633088781293" />
     <state x="585" y="134" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1633080312546" />
     <state width="421" height="466" key="DebuggerActiveHint" timestamp="1632934429718">
       <screen x="0" y="0" width="1920" height="1080" />

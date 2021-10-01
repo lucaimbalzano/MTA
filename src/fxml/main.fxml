@@ -398,4 +398,7 @@
    <rowConstraints>
       <RowConstraints />
    </rowConstraints>
+   <effect>
+      <DropShadow />
+   </effect>
 </GridPane>

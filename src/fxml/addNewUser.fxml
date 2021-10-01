@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane  prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddUserController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AddUserController">
    <children>
       <Button id="addMember-btn" fx:id="btnAddMember" layoutX="359.0" layoutY="318.0" mnemonicParsing="false" onAction="#addMemberOnClick" prefHeight="34.0" prefWidth="138.0" stylesheets="@../css/Styling.css" text="Add Member">
          <effect>
@@ -74,7 +74,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </FontAwesomeIconView>
-            <FontAwesomeIconView fx:id="closeWindowAddMember"  fill="WHITE" glyphName="REMOVE" onMouseClicked="#closeWindowAddMemberR" size="18.0">
+            <FontAwesomeIconView fx:id="closeWindowAddMember" fill="WHITE" glyphName="REMOVE" onMouseClicked="#closeWindowAddMemberR" size="18.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -85,4 +85,7 @@
          </children>
       </HBox>
    </children>
+   <effect>
+      <DropShadow />
+   </effect>
 </AnchorPane>
