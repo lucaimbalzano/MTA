@@ -16,11 +16,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -40,6 +42,14 @@ import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
 public class MainController implements Initializable {
+     @FXML
+    private Button btnReports, btnChats, btnLogs, btnTasks, btnProjects ,btnUsers, btnProfile;
+
+    @FXML
+    private GridPane pnChats, pnTable ,pnTasks, pnProjects, pnProfile, pnReports, pnLogs;
+
+    @FXML
+    private Label lblPathIndex;
 
     @FXML
     private TableView tableView;
@@ -110,6 +120,41 @@ public class MainController implements Initializable {
         }
         tableView.setItems(data);
         logger.debug("### Data set into TableView ###");
+    }
+
+
+    @FXML
+    void onActionMenuBtn(ActionEvent event) {
+        if(event.getSource() == btnUsers){
+            lblPathIndex.setText("Home/Users");
+            pnTable.toFront();
+        }
+        if(event.getSource() == btnProfile){
+            lblPathIndex.setText("Home/Profile");
+            pnProfile.toFront();
+        }
+        if(event.getSource() == btnChats){
+            lblPathIndex.setText("Home/Chats");
+            pnChats.toFront();
+        }
+        if(event.getSource() == btnReports){
+            lblPathIndex.setText("Home/Reports");
+            pnReports.toFront();
+        }
+        if(event.getSource() == btnLogs){
+            lblPathIndex.setText("Home/Logs");
+            pnLogs.toFront();
+        }
+        if(event.getSource() == btnProjects){
+            lblPathIndex.setText("Home/Projects");
+            pnProjects.toFront();
+        }
+        if(event.getSource() == btnTasks){
+            lblPathIndex.setText("Home/Tasks");
+            pnTasks.toFront();
+        }
+
+
     }
 
 
