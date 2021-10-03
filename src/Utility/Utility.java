@@ -1,12 +1,18 @@
 package Utility;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.stage.Window;
+
+import java.io.IOException;
 
 public class Utility {
 
@@ -45,6 +51,24 @@ public class Utility {
         alert.setContentText(message);
         alert.initOwner(owner);
         alert.show();
+    }
+
+    public void showDialog(String fxml){
+        try {
+            Parent loader =  FXMLLoader.load(getClass().getResource("src/fxml/"+fxml+".fxml"));
+            Stage stage = new Stage();
+            Scene scene = new Scene(loader);
+            stage.setScene(scene);
+            stage.getIcons().add(new Image("/icons/iconLogo.png"));
+            stage.setResizable(false);
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.show();
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+
     }
 
     public void getSetOnMouseDragged(MouseEvent e, Double x , Double y){

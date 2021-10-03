@@ -1,5 +1,6 @@
 package Controller;
 
+import Utility.Utility;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,6 +36,7 @@ public class LoginController implements Initializable {
     private CheckBox showPassword;
 
     Double xCordinate, yCordinate;
+    Utility utility = Utility.getUtilityIntance();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -47,21 +49,36 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    void onClickedGoToSignup(MouseEvent event) {
-        try {
-            Parent loader =  FXMLLoader.load(getClass().getResource("/fxml/signup.fxml"));
-            Stage stage = new Stage();
-            Scene scene = new Scene(loader);
-            stage.setScene(scene);
-            stage.getIcons().add(new Image("/icons/iconLogo.png"));
-            stage.setResizable(false);
-            stage.initStyle(StageStyle.UNDECORATED);
-            stage.show();
-            Stage stageLogin = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stageLogin.close();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
+    void onClickGoToSignup(MouseEvent event) throws IOException {
+
+        Stage primaryStage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/registration.fxml"));
+        Scene sc = new Scene(root);
+
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
+
+        root.mouseTransparentProperty();
+        primaryStage.setScene(sc);
+        primaryStage.setResizable(false);
+        primaryStage.getIcons().add(new Image("/icons/iconLogo.png"));
+        primaryStage.show();
+
+//        try {
+//            Parent loader =  FXMLLoader.load(getClass().getResource("/fxml/signu.fxml"));
+//            Stage stage = new Stage();
+//            Scene scene = new Scene(loader);
+//            stage.setScene(scene);
+//            stage.getIcons().add(new Image("/icons/iconLogo.png"));
+//            stage.setResizable(false);
+//            stage.initStyle(StageStyle.UNDECORATED);
+//            stage.show();
+//            Stage stageLogin = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//            stageLogin.close();
+//        }catch (IOException e){
+//            e.printStackTrace();
+//        }
+      //  utility.showDialog("import.fxml");
+
     }
 
     @FXML

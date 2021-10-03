@@ -1,5 +1,5 @@
 /*Color gradient*/
-#pnLeftGrid, #btnLogin, #hBoxSignup{
+#pnLeftGrid, #btnLogin, #signupTopBar{
     -fx-background-color: linear-gradient( to right top,#fc665d, #fc908b);
 }
 

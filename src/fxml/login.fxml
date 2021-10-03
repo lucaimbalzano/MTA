@@ -107,7 +107,7 @@
                               <DropShadow height="4.0" radius="1.5" width="4.0" />
                            </effect>
                         </Button>
-                        <Button fx:id="btnSigupTo" contentDisplay="RIGHT" layoutX="205.0" layoutY="302.0" mnemonicParsing="false" onMouseClicked="#onClickedGoToSignup" prefHeight="32.0" prefWidth="145.0" stylesheets="@../css/color.css" text="Signup" textFill="WHITE">
+                        <Button fx:id="btnSigupTo" contentDisplay="RIGHT" layoutX="205.0" layoutY="302.0" mnemonicParsing="false" onMouseClicked="#onClickGoToSignup" prefHeight="32.0" prefWidth="145.0" stylesheets="@../css/color.css" text="Signup" textFill="WHITE">
                            <effect>
                               <DropShadow height="4.0" radius="1.5" width="4.0" />
                            </effect>

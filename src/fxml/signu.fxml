@@ -29,7 +29,7 @@
                   <Insets left="10.0" top="23.0" />
                </HBox.margin>
             </ImageView>
-            <ImageView fitHeight="32.0" fitWidth="29.0" onMouseClicked="#onClickedCloseSignup" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="32.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../icons/logoHappiness.png" />
                </image>
@@ -104,7 +104,7 @@
                         <DropShadow height="4.0" radius="1.5" width="4.0" />
                      </effect>
                   </Button>
-                  <Button fx:id="btnSigupTo" contentDisplay="RIGHT" layoutX="280.0" layoutY="395.0" mnemonicParsing="false" onMouseClicked="#onClickedSignup" prefHeight="32.0" prefWidth="145.0" stylesheets="@../css/color.css" text="Signup" textFill="WHITE">
+                  <Button fx:id="btnSigupTo" contentDisplay="RIGHT" layoutX="280.0" layoutY="395.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="145.0" stylesheets="@../css/color.css" text="Signup" textFill="WHITE">
                      <effect>
                         <DropShadow height="4.0" radius="1.5" width="4.0" />
                      </effect>
