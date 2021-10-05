@@ -55,7 +55,7 @@ public class ImportController implements Initializable {
         if(!lblPath.getText().isEmpty())
         {userServiceImpl.importUserFromExcel(lblPath.getText());}
         else
-        {utility.showAlertError(Alert.AlertType.ERROR, owner, "⛔MTA[福] || Error Occurred!",
+        {utility.showAlertError(Alert.AlertType.ERROR, owner, "⛔ MTA[福] || Error Occurred!",
                 "Please enter a valid Path! ⛔",event);}
 
     }

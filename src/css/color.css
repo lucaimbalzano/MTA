@@ -1,9 +1,9 @@
 /*Color gradient*/
-#pnLeftGrid, #btnLogin, #signupTopBar{
+#pnLeftGrid, #btnLogin, #signupTopBar, #btnReturnLogin{
     -fx-background-color: linear-gradient( to right top,#fc665d, #fc908b);
 }
 
-#btnSigupTo{
+#btnSigupTo,#btnSaveSignup {
     -fx-background-color: linear-gradient( to right top, #fc7d6c, #fcbeae);
 }
 

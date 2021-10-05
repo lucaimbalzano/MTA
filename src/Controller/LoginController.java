@@ -50,18 +50,19 @@ public class LoginController implements Initializable {
 
     @FXML
     void onClickGoToSignup(MouseEvent event) throws IOException {
-
+        //Open signup window
         Stage primaryStage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/registration.fxml"));
         Scene sc = new Scene(root);
-
         primaryStage.initStyle(StageStyle.TRANSPARENT);
-
         root.mouseTransparentProperty();
         primaryStage.setScene(sc);
         primaryStage.setResizable(false);
         primaryStage.getIcons().add(new Image("/icons/iconLogo.png"));
         primaryStage.show();
+        //Close login window
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
 
 //        try {
 //            Parent loader =  FXMLLoader.load(getClass().getResource("/fxml/signu.fxml"));

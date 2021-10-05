@@ -8,4 +8,8 @@ public interface IUserService {
 
     public void importUserFromExcel(String path);
 
+    public Boolean signupUser(User user,String password, String email);
+
+    public Integer getLastIdUser();
+
 }

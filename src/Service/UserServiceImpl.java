@@ -1,6 +1,7 @@
 package Service;
 
 import Connections.DatabaseConnections;
+import javafx.collections.FXCollections;
 import javafx.scene.control.Alert;
 import javafx.stage.FileChooser;
 import model.User;
@@ -15,10 +16,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URLEncoder;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class UserServiceImpl implements IUserService {
     Logger logger = Logger.getLogger(UserServiceImpl.class);
@@ -113,7 +111,76 @@ public class UserServiceImpl implements IUserService {
         }catch(SQLException se){
             printStackTrace(se);
         }
+
     }
+
+    @Override
+    public Boolean signupUser(User user, String password, String email) {
+        if(!addUser(user))
+           return false;
+        Integer idUser = getLastIdUser();
+        if(idUser==0)
+            return false;
+
+        String preparedSql = "INSERT INTO LOGIN (id,email,password,idUser) VALUES (?,?,?,?)";
+        int result = 0;
+        int cont = 1 ;
+        PreparedStatement preparedStmt = null;
+        DatabaseConnections databaseConnections = new DatabaseConnections();
+        try {
+            Connection conn = databaseConnections.getConnection();
+            preparedStmt = conn.prepareStatement(preparedSql);
+            preparedStmt.setString(++cont, email);
+            preparedStmt.setString(++cont, password);
+            preparedStmt.setInt(++cont, idUser);
+            result = preparedStmt.executeUpdate();
+            if (result > 0) {
+                logger.debug("### Login Added Successfully ###");
+                conn.close();
+                return true;
+            }
+            conn.close();
+
+        } catch (Exception e) {
+            logger.debug("### Error occured inside signupUser(): " + e.getMessage() + " ###");
+            e.printStackTrace();
+            logger.debug("### End stackTraceError ###");
+        }
+        logger.debug("### Error while adding the Login ###");
+
+        return false;
+    }
+
+    @Override
+    public Integer getLastIdUser() {
+        DatabaseConnections databaseConnections = new DatabaseConnections();
+        Connection conn = databaseConnections.getConnection();
+
+        String query = "SELECT * FROM `[mta]user`.last_id;";
+        Statement statement;
+        try {
+
+            User user = new User();
+            statement = conn.createStatement();
+            ResultSet queryOutput = statement.executeQuery(query);
+           // queryOutput.getString("Age"), queryOutput.getString("Address"),queryOutput.getString("Phone"),"N/A")
+            while(queryOutput.next()){
+                return Integer.parseInt(queryOutput.getString("id"));
+            }
+
+            logger.debug("### User Data Retrived ###");
+
+        } catch (SQLException e) {
+            logger.debug(" ### Exception Occurred: "+e.getMessage()+" ###");
+            e.printStackTrace();
+            logger.debug(" ### End StackTraceException ###");
+        }
+
+        return 0;
+    }
+
+
+
 
     private void printStackTrace(Exception e){
         logger.fatal("### Error occured inside importUserFromExcel(): " + e.getMessage() + " ###");
