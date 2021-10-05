@@ -73,12 +73,8 @@ public class RegistrationController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         BasicConfigurator.configure();
-
         passwordTextField.setVisible(false);
         confirmPasswordTextField.setVisible(false);
-
-
-
     }
 
     @FXML
@@ -96,10 +92,6 @@ public class RegistrationController implements Initializable {
         stage.close();
     }
 
-    @FXML
-    void onClickedGetPathFile(ActionEvent event) {
-
-    }
 
     @FXML
     void onClickedReturnOnLogin(MouseEvent event) {
@@ -175,11 +167,22 @@ public class RegistrationController implements Initializable {
                     try {
                         BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
                         writer.write(email + "," + encryptor.encryptString(password) + "\n");
-                        logger.debug(" ### file wrote with MD5: " + encryptor.encryptString(password) + "  ###");
                         writer.close();
-                       // userServiceImpl.signupUser(utility.setNewUserByTxtForm(txtLastname,txtName,txtPrefix,txtPhone,txtAddress,txtAge,txtAction),getPassword(),txtEmail.getText());
-                        userServiceImpl.signupUser(new User(txtName.getText(),txtLastname.getText(),txtAge.getText(),txtPrefix.getText()+txtPhone.getText(),txtAddress.getText(),txtAction.getText()),getPassword(),txtEmail.getText());
-                    } catch (IOException | InvalidKeyException | NoSuchAlgorithmException e) {
+                       if(userServiceImpl.signupUser(new User(txtName.getText(),txtLastname.getText(),txtAge.getText(),txtPrefix.getText()+txtPhone.getText(),txtAddress.getText(),txtAction.getText()),encryptor.encryptString(password),txtEmail.getText()))
+                       {
+                           logger.debug("### exit from window ###");
+                           utility.showAlertErrorActionEvent(Alert.AlertType.CONFIRMATION, owner, "MTA[✅]          Success!",
+                                   "You signup with success! ✅ ", event);
+                           Thread.sleep(1500);
+                           Stage stage = (Stage) owner.getScene().getWindow();
+                           stage.close();
+                           utility.showDialog("login");
+                       }else{
+                           utility.showAlertErrorActionEvent(Alert.AlertType.ERROR, owner, "MTA[❌]          Error Occurred!",
+                                   "Email already Exist! ⛔", event);
+                       }
+
+                } catch (IOException | InvalidKeyException | NoSuchAlgorithmException | InterruptedException e) {
                         logger.error(" ### Exception occurred: " + e.getMessage() + " ###");
                         e.printStackTrace();
                         logger.error("### End Exception StackTrace ###");

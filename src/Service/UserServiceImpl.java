@@ -116,38 +116,40 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public Boolean signupUser(User user, String password, String email) {
-        if(!addUser(user))
-           return false;
-        Integer idUser = getLastIdUser();
-        if(idUser==0)
-            return false;
+        if(getPasswordFromEmail(email)==null){
+            if(!addUser(user))
+                return false;
+            Integer idUser = getLastIdUser();
+            if(idUser==0)
+                return false;
 
-        String preparedSql = "INSERT INTO LOGIN (email,password,idUser) VALUES (?,?,?)";
-        int result = 0;
-        int cont = 0 ;
-        PreparedStatement preparedStmt = null;
-        DatabaseConnections databaseConnections = new DatabaseConnections();
-        try {
-            Connection conn = databaseConnections.getConnection();
-            preparedStmt = conn.prepareStatement(preparedSql);
-            preparedStmt.setString(++cont, email);
-            preparedStmt.setString(++cont, password);
-            preparedStmt.setInt(++cont, idUser);
-            result = preparedStmt.executeUpdate();
-            if (result > 0) {
-                logger.debug("### Login Added Successfully ###");
+            String preparedSql = "INSERT INTO LOGIN (email,password,idUser) VALUES (?,?,?)";
+            int result = 0;
+            int cont = 0 ;
+            PreparedStatement preparedStmt = null;
+            DatabaseConnections databaseConnections = new DatabaseConnections();
+            try {
+                Connection conn = databaseConnections.getConnection();
+                preparedStmt = conn.prepareStatement(preparedSql);
+                preparedStmt.setString(++cont, email);
+                preparedStmt.setString(++cont, password);
+                preparedStmt.setInt(++cont, idUser);
+                result = preparedStmt.executeUpdate();
+                if (result > 0) {
+                    logger.debug("### Login Added Successfully ###");
+                    conn.close();
+                    return true;
+                }
                 conn.close();
-                return true;
+
+            } catch (Exception e) {
+                logger.debug("### Error occured inside signupUser(): " + e.getMessage() + " ###");
+                e.printStackTrace();
+                logger.debug("### End stackTraceError ###");
             }
-            conn.close();
+            logger.debug("### Error while adding the Login ###");
 
-        } catch (Exception e) {
-            logger.debug("### Error occured inside signupUser(): " + e.getMessage() + " ###");
-            e.printStackTrace();
-            logger.debug("### End stackTraceError ###");
         }
-        logger.debug("### Error while adding the Login ###");
-
         return false;
     }
 
@@ -163,13 +165,11 @@ public class UserServiceImpl implements IUserService {
             User user = new User();
             statement = conn.createStatement();
             ResultSet queryOutput = statement.executeQuery(query);
-           // queryOutput.getString("Age"), queryOutput.getString("Address"),queryOutput.getString("Phone"),"N/A")
+
             while(queryOutput.next()){
+                logger.debug("### User Data Retrived ###");
                 return Integer.parseInt(queryOutput.getString("id"));
             }
-
-            logger.debug("### User Data Retrived ###");
-
         } catch (SQLException e) {
             logger.debug(" ### Exception Occurred: "+e.getMessage()+" ###");
             e.printStackTrace();
@@ -179,7 +179,29 @@ public class UserServiceImpl implements IUserService {
         return 0;
     }
 
+    @Override
+    public String getPasswordFromEmail(String email){
+        DatabaseConnections databaseConnections = new DatabaseConnections();
+        Connection conn = databaseConnections.getConnection();
 
+        String query = "SELECT * FROM `[mta]user`.login WHERE email='"+email+"';";
+        Statement statement;
+        try {
+            statement = conn.createStatement();
+            ResultSet queryOutput = statement.executeQuery(query);
+
+            while(queryOutput.next()){
+                logger.debug("### Email Data Retrived ###");
+                return queryOutput.getString("password");
+            }
+        } catch (SQLException e) {
+            logger.debug(" ### Exception Occurred: "+e.getMessage()+" ###");
+            e.printStackTrace();
+            logger.debug(" ### End StackTraceException ###");
+        }
+        logger.debug("### Email Data not exist ###");
+        return null;
+    }
 
 
     private void printStackTrace(Exception e){

@@ -1,5 +1,7 @@
 package Controller;
 
+import Encryptor.Encryptor;
+import Service.UserServiceImpl;
 import Utility.Utility;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,44 +10,64 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.stage.Window;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
+import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
 
     @FXML
-    private TextField txtUsername;
+    private TextField txtEmail,txtPassword;
 
     @FXML
     private Button btnLogin,btnSigupTo;
 
     @FXML
-    private PasswordField txtPasswordLogin;
+    private PasswordField pfPasswordLogin;
 
     @FXML
     private CheckBox showPassword;
 
     Double xCordinate, yCordinate;
     Utility utility = Utility.getUtilityIntance();
+    UserServiceImpl userServiceImpl = new UserServiceImpl();
+    Encryptor encryptor = new Encryptor();
+
+    private static Logger logger = Logger.getLogger(LoginController.class);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        showPassword.toFront();
+        txtPassword.setVisible(false);
     }
 
     @FXML
     void onActionLogin(ActionEvent event) {
-
+        Window owner = btnLogin.getScene().getWindow();
+        try{
+            if(checkPasswords(owner,event)) {
+                logger.debug("### Login user: "+txtEmail.getText()+" Success ###");
+                utility.showDialog("main");
+                Thread.sleep(1500);
+                Stage stage = (Stage) owner.getScene().getWindow();
+                stage.close();
+            }else{
+                logger.error("### Login user: "+txtEmail.getText()+" Error ###");
+            }
+        }catch (Exception e){
+            logger.error("### Exception Occurred: "+e.getMessage()+" ###");
+            e.printStackTrace();
+            logger.error("### End StackTrace Exception ###");
+        }
     }
 
     @FXML
@@ -63,23 +85,6 @@ public class LoginController implements Initializable {
         //Close login window
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
-
-//        try {
-//            Parent loader =  FXMLLoader.load(getClass().getResource("/fxml/signu.fxml"));
-//            Stage stage = new Stage();
-//            Scene scene = new Scene(loader);
-//            stage.setScene(scene);
-//            stage.getIcons().add(new Image("/icons/iconLogo.png"));
-//            stage.setResizable(false);
-//            stage.initStyle(StageStyle.UNDECORATED);
-//            stage.show();
-//            Stage stageLogin = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//            stageLogin.close();
-//        }catch (IOException e){
-//            e.printStackTrace();
-//        }
-      //  utility.showDialog("import.fxml");
-
     }
 
     @FXML
@@ -101,6 +106,54 @@ public class LoginController implements Initializable {
         stage.close();
     }
 
+    private String getPassword(){
+        if(txtPassword.isVisible()){
+            return txtPassword.getText();
+        } else {
+            return pfPasswordLogin.getText();
+        }
+    }
+
+
+    @FXML
+    void changeVisibility(ActionEvent event) {
+        if (showPassword.isSelected()) {
+            txtPassword.setText(pfPasswordLogin.getText());
+            txtPassword.setVisible(true);
+            pfPasswordLogin.setVisible(false);
+            return;
+        }
+            pfPasswordLogin.setText(txtPassword.getText());
+            txtPassword.setVisible(false);
+            pfPasswordLogin.setVisible(true);
+    }
+
+    private Boolean checkPasswords(Window owner,ActionEvent event) throws NoSuchAlgorithmException {
+        String password = userServiceImpl.getPasswordFromEmail(txtEmail.getText());
+        if(password!=null){
+            if(txtPassword.isVisible()) {
+                if(encryptor.encryptString(txtPassword.getText()).equals(password)){
+                    logger.debug("### Login check txtPassword Success ###");
+                    return true;
+                }else{
+                    logger.error("### Login check txtPassword doesn't match ###");
+                    return false;
+                }
+            }else{
+                if(encryptor.encryptString(pfPasswordLogin.getText()).equals(password)){
+                    logger.debug("### Login check PasswordField Success ###");
+                    return true;
+                }else{
+                    logger.error("### Login check PasswordField doesn't match ###");
+                    return false;
+                }
+            }
+        }else{
+            utility.showAlertErrorActionEvent(Alert.AlertType.ERROR, owner, "MTA[❌]          Error Occurred!",
+                    "Password with this email doesn't exist! ⛔", event);
+            return false;
+        }
+    }
 
 
 }

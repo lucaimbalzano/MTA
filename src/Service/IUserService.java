@@ -12,4 +12,6 @@ public interface IUserService {
 
     public Integer getLastIdUser();
 
+    public String getPasswordFromEmail(String email);
+
 }

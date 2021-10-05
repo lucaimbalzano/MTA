@@ -82,7 +82,7 @@
                <children>
                   <Pane prefHeight="417.0" prefWidth="228.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <TextField fx:id="txtUsername" layoutX="88.0" layoutY="159.0" prefHeight="40.0" prefWidth="190.0">
+                        <TextField fx:id="txtEmail" layoutX="88.0" layoutY="159.0" prefHeight="40.0" prefWidth="190.0">
                            <effect>
                               <DropShadow height="3.21" radius="1.105" width="3.21" />
                            </effect>
@@ -97,7 +97,7 @@
                               <Image url="@../icons/logoHappiness.png" />
                            </image>
                         </ImageView>
-                        <PasswordField fx:id="txtPasswordLogin" layoutX="88.0" layoutY="229.0" prefHeight="40.0" prefWidth="190.0">
+                        <PasswordField fx:id="pfPasswordLogin" layoutX="88.0" layoutY="229.0" prefHeight="40.0" prefWidth="190.0">
                            <effect>
                               <DropShadow height="3.21" radius="1.105" width="3.21" />
                            </effect>
@@ -116,7 +116,12 @@
                         <Line endX="-115.0" endY="414.0" layoutX="115.0" layoutY="3.0" startX="-115.0" stroke="#fc908b" strokeWidth="6.0" />
                         <Line endX="-115.0" endY="428.0" layoutX="115.0" layoutY="-8.0" startX="258.0" startY="428.0" stroke="#fc908b" strokeWidth="6.0" />
                         <Line endX="-115.0" endY="414.0" layoutX="488.0" layoutY="3.0" startX="-115.0" startY="29.0" stroke="#fc908b" strokeWidth="6.0" />
-                        <CheckBox fx:id="showPassword" layoutX="255.0" layoutY="241.0" mnemonicParsing="false" />
+                        <CheckBox fx:id="showPassword" layoutX="249.0" layoutY="241.0" mnemonicParsing="false" onAction="#changeVisibility" />
+                        <TextField fx:id="txtPassword" layoutX="88.0" layoutY="229.0" prefHeight="40.0" prefWidth="190.0">
+                           <effect>
+                              <DropShadow height="3.21" radius="1.105" width="3.21" />
+                           </effect>
+                        </TextField>
                      </children>
                   </Pane>
                </children>
