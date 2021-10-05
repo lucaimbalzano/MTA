@@ -69,7 +69,7 @@
                   <DropShadow height="3.0" radius="1.0" width="3.0" />
                </effect>
             </TextField>
-            <TextField fx:id="txtPhone" layoutX="49.0" layoutY="49.0" prefHeight="25.0" prefWidth="90.0" promptText="000 000 0000">
+            <TextField fx:id="txtPhone" layoutX="49.0" layoutY="49.0" prefHeight="25.0" prefWidth="90.0" promptText="3453339090">
                <effect>
                   <DropShadow height="3.0" radius="1.0" width="3.0" />
                </effect>

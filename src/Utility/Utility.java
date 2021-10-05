@@ -50,7 +50,8 @@ public class Utility {
 
     public User setNewUserByTxtForm(TextField txtLastname,TextField txtName,TextField txtPrefix,TextField txtPhone,TextField txtAddress,TextField txtAge ,TextField txtAction){
         User user = new User();
-        user.setName(txtName.getText());
+        String x = txtName.getText();
+        user.setName(x);
         user.setLastname(txtLastname.getText());
         user.setPhone(txtPrefix.getText()+txtPhone.getText());
         user.setAction(txtAction.getText());

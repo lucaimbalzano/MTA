@@ -16,6 +16,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
+import model.User;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
@@ -60,7 +61,7 @@ public class RegistrationController implements Initializable {
             Pattern.compile("^[A-Z0-9._+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
     public final String FORMAT_EMAIL = "\n"+" ● Uppercase and lowercase English letters (a-z, A-Z)"+"\n"+" ● Characters valid: . _ + -"+"\n"+" ● Example: example01@domain.com";
     public final String PREFIX_$RGX = "^[+]+[0-9]+$";
-    public final String LENGTH_$RGX = "^\\s*(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\s*$`";
+    public final String LENGTH_$RGX ="\\d{10}|(?:\\d{3}-){2}\\d{4}|\\(\\d{3}\\)\\d{3}-?\\d{4}";
     public final String AGE_$RGX = "^(?:[1-9][0-9]?|1[01][0-9]|140)$";
 
     UserServiceImpl userServiceImpl = new UserServiceImpl();
@@ -72,6 +73,7 @@ public class RegistrationController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         BasicConfigurator.configure();
+
         passwordTextField.setVisible(false);
         confirmPasswordTextField.setVisible(false);
 
@@ -175,7 +177,8 @@ public class RegistrationController implements Initializable {
                         writer.write(email + "," + encryptor.encryptString(password) + "\n");
                         logger.debug(" ### file wrote with MD5: " + encryptor.encryptString(password) + "  ###");
                         writer.close();
-                        userServiceImpl.signupUser(utility.setNewUserByTxtForm(txtLastname,txtName,txtPrefix,txtPhone,txtAddress,txtAge,txtAction),getPassword(),txtEmail.getText());
+                       // userServiceImpl.signupUser(utility.setNewUserByTxtForm(txtLastname,txtName,txtPrefix,txtPhone,txtAddress,txtAge,txtAction),getPassword(),txtEmail.getText());
+                        userServiceImpl.signupUser(new User(txtName.getText(),txtLastname.getText(),txtAge.getText(),txtPrefix.getText()+txtPhone.getText(),txtAddress.getText(),txtAction.getText()),getPassword(),txtEmail.getText());
                     } catch (IOException | InvalidKeyException | NoSuchAlgorithmException e) {
                         logger.error(" ### Exception occurred: " + e.getMessage() + " ###");
                         e.printStackTrace();
@@ -200,10 +203,10 @@ public class RegistrationController implements Initializable {
 
     private Boolean checkPasswords(){
         if(passwordTextField.isVisible()){
-            if(passwordTextField.getText()==confirmPasswordTextField.getText())
+            if(passwordTextField.getText().equals(confirmPasswordTextField.getText()))
                 return true;
         } else {
-            if(hiddenPasswordTextField.getText()==hiddenConfirmPasswordTextField.getText())
+            if(hiddenPasswordTextField.getText().equals(hiddenConfirmPasswordTextField.getText()))
                 return true;
         }
         return false;

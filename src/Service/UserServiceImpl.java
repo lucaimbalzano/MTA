@@ -122,9 +122,9 @@ public class UserServiceImpl implements IUserService {
         if(idUser==0)
             return false;
 
-        String preparedSql = "INSERT INTO LOGIN (id,email,password,idUser) VALUES (?,?,?,?)";
+        String preparedSql = "INSERT INTO LOGIN (email,password,idUser) VALUES (?,?,?)";
         int result = 0;
-        int cont = 1 ;
+        int cont = 0 ;
         PreparedStatement preparedStmt = null;
         DatabaseConnections databaseConnections = new DatabaseConnections();
         try {
