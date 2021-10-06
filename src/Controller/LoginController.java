@@ -2,6 +2,7 @@ package Controller;
 
 import Encryptor.Encryptor;
 import Service.UserServiceImpl;
+import Session.UserSession;
 import Utility.Utility;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,15 +14,18 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
+import model.User;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
+import java.util.prefs.Preferences;
 
 public class LoginController implements Initializable {
 
@@ -56,10 +60,29 @@ public class LoginController implements Initializable {
         try{
             if(checkPasswords(owner,event)) {
                 logger.debug("### Login user: "+txtEmail.getText()+" Success ###");
-                utility.showDialog("main");
+
+               // Load Main.FXML
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(MainController.class.getResource("/fxml/main.fxml"));
+                GridPane root = loader.load();
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.getIcons().add(new Image("/icons/iconLogo.png"));
+                stage.setResizable(false);
+                stage.initStyle(StageStyle.UNDECORATED);
+                stage.show();
+
+                //Set profileName
+                MainController mainController = loader.getController();
+                Integer id = userServiceImpl.getUserIdByEmail(txtEmail.getText());
+                User user = userServiceImpl.getUserById(id);
+                mainController.setUserLabel(user.getName(),user.getLastname());
+                mainController.setUserConfigurationTxtFields(user,txtEmail.getText(),getPassword());
+                //Close window after 1,5 sec
                 Thread.sleep(1500);
-                Stage stage = (Stage) owner.getScene().getWindow();
-                stage.close();
+                Stage stageLogin = (Stage) owner.getScene().getWindow();
+                stageLogin.close();
             }else{
                 logger.error("### Login user: "+txtEmail.getText()+" Error ###");
             }
@@ -153,6 +176,10 @@ public class LoginController implements Initializable {
                     "Password with this email doesn't exist! ⛔", event);
             return false;
         }
+    }
+
+    public String getTxtEmail(){
+        return txtEmail.getText();
     }
 
 

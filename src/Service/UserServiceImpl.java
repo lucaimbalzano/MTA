@@ -203,6 +203,59 @@ public class UserServiceImpl implements IUserService {
         return null;
     }
 
+    @Override
+    public Integer getUserIdByEmail(String email) {
+        DatabaseConnections databaseConnections = new DatabaseConnections();
+        Connection conn = databaseConnections.getConnection();
+
+        String query = "SELECT * FROM `[mta]user`.login WHERE email='"+email+"';";
+        Statement statement;
+        try {
+            statement = conn.createStatement();
+            ResultSet queryOutput = statement.executeQuery(query);
+
+            while(queryOutput.next()){
+                logger.debug("### User id Retrived ###");
+                return Integer.parseInt(queryOutput.getString("id"));
+            }
+        } catch (SQLException e) {
+            logger.debug(" ### Exception Occurred: "+e.getMessage()+" ###");
+            e.printStackTrace();
+            logger.debug(" ### End StackTraceException ###");
+        }
+        logger.debug("### User id not exist ###");
+        return null;
+    }
+
+    @Override
+    public User getUserById(Integer id) {
+        DatabaseConnections databaseConnections = new DatabaseConnections();
+        Connection conn = databaseConnections.getConnection();
+
+        String query = "SELECT * FROM `[mta]user`.user WHERE id='"+id+"';";
+        Statement statement;
+        try {
+            statement = conn.createStatement();
+            ResultSet queryOutput = statement.executeQuery(query);
+
+            while(queryOutput.next()){
+                logger.debug("### User data Retrived ###");
+                return new User(queryOutput.getString("Name"),
+                                queryOutput.getString("Lastname"),
+                                queryOutput.getString("Age"),
+                                queryOutput.getString("Address"),
+                                queryOutput.getString("Phone"),
+                                queryOutput.getString("Action"),"");
+            }
+        } catch (SQLException e) {
+            logger.debug(" ### Exception Occurred: "+e.getMessage()+" ###");
+            e.printStackTrace();
+            logger.debug(" ### End StackTraceException ###");
+        }
+        logger.debug("### User data not exist ###");
+        return null;
+    }
+
 
     private void printStackTrace(Exception e){
         logger.fatal("### Error occured inside importUserFromExcel(): " + e.getMessage() + " ###");

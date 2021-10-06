@@ -13,7 +13,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
+import model.Login;
 import model.User;
+import model.UserConfiguration;
 
 import java.io.IOException;
 
@@ -58,6 +60,21 @@ public class Utility {
         user.setAddress(txtAddress.getText());
         user.setAge(txtAge.getText());
         return user;
+    }
+
+    public UserConfiguration getUserConfigByAllTxtFields(TextField txtLastname,TextField txtName,TextField txtPhone,TextField txtAddress,TextField txtAge ,TextField txtAction, String email, String password){
+        try{
+            UserConfiguration uConfig = new UserConfiguration();
+            uConfig.setUser(setNewUserByTxtForm(txtLastname,txtName,new TextField(""),txtPhone,txtAddress,txtAge,txtAction));
+            Login login = new Login();
+            login.setEmail(email);
+            login.setPassword(password);
+            uConfig.setLogin(login);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return uConfig;
     }
 
     /*
@@ -113,9 +130,27 @@ public class Utility {
         }catch (IOException e){
             e.printStackTrace();
         }
-
-
     }
+
+    public FXMLLoader showDialogExportFXMLLoader(String fxml){
+        try {
+            FXMLLoader loader =  FXMLLoader.load(getClass().getResource("/fxml/"+fxml+".fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.getIcons().add(new Image("/icons/iconLogo.png"));
+            stage.setResizable(false);
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.show();
+            return loader;
+
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
 
 }

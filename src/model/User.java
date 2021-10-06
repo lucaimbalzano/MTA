@@ -3,6 +3,7 @@ package model;
 import javafx.beans.property.SimpleStringProperty;
 
 public class User {
+    SimpleStringProperty id;
     SimpleStringProperty Name;
     SimpleStringProperty Lastname;
     SimpleStringProperty Age;
@@ -12,13 +13,26 @@ public class User {
 
     public User(){}
 
-    public User(String name, String lastname, String age, String address, String phone, String action) {
+    public User(String name, String lastname, String age, String address, String phone, String action, String id) {
         Name = new SimpleStringProperty(name);
         Lastname = new SimpleStringProperty(lastname);
         Age = new SimpleStringProperty(age);
         Address = new SimpleStringProperty(address);
         Phone = new SimpleStringProperty(phone);
         Action = new SimpleStringProperty(action);
+       this.id = new SimpleStringProperty(id);
+    }
+
+    public String getId() {
+        return id.get();
+    }
+
+    public SimpleStringProperty idProperty() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id.set(id);
     }
 
     public String getName() {

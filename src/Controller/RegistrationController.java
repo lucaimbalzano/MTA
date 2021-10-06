@@ -168,7 +168,7 @@ public class RegistrationController implements Initializable {
                         BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
                         writer.write(email + "," + encryptor.encryptString(password) + "\n");
                         writer.close();
-                       if(userServiceImpl.signupUser(new User(txtName.getText(),txtLastname.getText(),txtAge.getText(),txtPrefix.getText()+txtPhone.getText(),txtAddress.getText(),txtAction.getText()),encryptor.encryptString(password),txtEmail.getText()))
+                       if(userServiceImpl.signupUser(new User(txtName.getText(),txtLastname.getText(),txtAge.getText(),txtPrefix.getText()+txtPhone.getText(),txtAddress.getText(),txtAction.getText(),""),encryptor.encryptString(password),txtEmail.getText()))
                        {
                            logger.debug("### exit from window ###");
                            utility.showAlertErrorActionEvent(Alert.AlertType.CONFIRMATION, owner, "MTA[✅]          Success!",

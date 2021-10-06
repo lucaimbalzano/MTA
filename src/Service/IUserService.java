@@ -14,4 +14,8 @@ public interface IUserService {
 
     public String getPasswordFromEmail(String email);
 
+    public Integer getUserIdByEmail(String email);
+
+    public User getUserById(Integer id);
+
 }

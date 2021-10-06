@@ -3,6 +3,7 @@ package Controller;
 import Connections.DatabaseConnections;
 
 
+import Session.UserSession;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.animation.Animation;
 import javafx.animation.RotateTransition;
@@ -15,10 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -35,6 +33,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import java.util.ResourceBundle;
+import java.util.prefs.Preferences;
 
 import javafx.util.Duration;
 import model.User;
@@ -49,7 +48,10 @@ public class MainController implements Initializable {
     private GridPane pnChats, pnTable ,pnTasks, pnProjects, pnProfile, pnReports, pnLogs;
 
     @FXML
-    private Label lblPathIndex;
+    private TextField txtName, txtLastname, txtAge, txtAddress , txtPhone, txtEmail ,txtPassword;
+
+    @FXML
+    private Label lblPathIndex,labelProfile;
 
     @FXML
     private TableView tableView;
@@ -81,11 +83,11 @@ public class MainController implements Initializable {
 
     private ObservableList<User> data;
     Double xCordinate, yCordinate;
-
-
+    UserConfigController userConfigController = new UserConfigController();
     DatabaseConnections databaseConnections = new DatabaseConnections();
     Connection conn = databaseConnections.getConnection();
-
+    LoginController loginController = new LoginController();
+    UserSession session = UserSession.getInstanceUserSession();
     String query = "SELECT * FROM user";
 
     private static Logger logger = Logger.getLogger(MainController.class);
@@ -93,6 +95,9 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         BasicConfigurator.configure();
+        Preferences userPreferences = Preferences.userRoot();
+
+
 
         tcAction.setCellValueFactory(new PropertyValueFactory<>("Action"));
         tcName.setCellValueFactory(new PropertyValueFactory<>("Name"));
@@ -108,7 +113,7 @@ public class MainController implements Initializable {
             ResultSet queryOutput = statement.executeQuery(query);
 
             while(queryOutput.next()){
-                data.add(new User(queryOutput.getString("Name"),queryOutput.getString("Lastname"), queryOutput.getString("Age"), queryOutput.getString("Address"),queryOutput.getString("Phone"),"N/A"));
+                data.add(new User(queryOutput.getString("Name"),queryOutput.getString("Lastname"), queryOutput.getString("Age"), queryOutput.getString("Address"),queryOutput.getString("Phone"),"N/A",""));
             }
 
             logger.debug("### Users Data Retrived ###");
@@ -131,6 +136,9 @@ public class MainController implements Initializable {
         }
         if(event.getSource() == btnProfile){
             lblPathIndex.setText("Home/Profile");
+//            String x = loginController.getTxtEmail();
+//            System.out.println(x);
+//            labelProfile.setText("Ciao");
             pnProfile.toFront();
         }
         if(event.getSource() == btnChats){
@@ -184,7 +192,7 @@ public class MainController implements Initializable {
             ResultSet queryOutput = statement.executeQuery(query);
 
             while(queryOutput.next()){
-                data.add(new User(queryOutput.getString("Name"),queryOutput.getString("Lastname"), queryOutput.getString("Age"), queryOutput.getString("Address"),queryOutput.getString("Phone"),"N/A"));
+                data.add(new User(queryOutput.getString("Name"),queryOutput.getString("Lastname"), queryOutput.getString("Age"), queryOutput.getString("Address"),queryOutput.getString("Phone"),"N/A",""));
             }
 
             logger.debug("### Users Data Retrived ###");
@@ -236,6 +244,11 @@ public class MainController implements Initializable {
         stage.setIconified(true);
     }
 
+    @FXML
+    void onClickConfirmUserConfig(MouseEvent event) {
+
+    }
+
 
     private void showDialog(String fxml){
        try {
@@ -252,7 +265,16 @@ public class MainController implements Initializable {
            e.printStackTrace();
        }
 
-
     }
+
+    public void setUserLabel(String name,String lastname){
+        labelProfile.setText(name+" "+lastname);
+    }
+
+    public void setUserConfigurationTxtFields(User u, String email,String password){
+        userConfigController.setTxtFields(u, txtName,txtLastname,txtAge,txtAddress, txtPhone, txtEmail,txtPassword, email,password);
+    }
+
+
 
 }

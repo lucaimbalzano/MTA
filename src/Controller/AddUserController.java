@@ -63,11 +63,9 @@ public class AddUserController implements Initializable {
     @FXML
     void addMemberOnClick(ActionEvent event) {
         Window owner = btnAddMember.getScene().getWindow();
-
-
         if(checkAllTxtParameters(owner)){
             logger.debug("User name:"+txtName.getText());
-           if(userServiceImpl.addUser(new User(txtName.getText(),txtLastname.getText(),txtAge.getText(),txtPhone.getText(),txtAddress.getText(),txtAction.getText()))){
+           if(userServiceImpl.addUser(new User(txtName.getText(),txtLastname.getText(),txtAge.getText(),txtPhone.getText(),txtAddress.getText(),txtAction.getText(),""))){
                showAlert(Alert.AlertType.CONFIRMATION, owner, "Success","You Added with Success");
                 txtName.setText("");
                 txtLastname.setText("");

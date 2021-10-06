@@ -9,6 +9,7 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
@@ -365,11 +366,51 @@
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                  </columnConstraints>
                                  <rowConstraints>
-                                    <RowConstraints maxHeight="246.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
-                                    <RowConstraints maxHeight="483.0" minHeight="10.0" prefHeight="469.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="246.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="483.0" minHeight="10.0" prefHeight="436.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <Label fx:id="lblProfile" text="Profile" GridPane.rowIndex="1" />
+                                    <Pane prefHeight="360.0" prefWidth="720.0" style="-fx-background-color: #E4E1E1;" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label layoutX="73.0" layoutY="116.0" text="Name" />
+                                          <Label layoutX="245.0" layoutY="108.0" text="Lastname" />
+                                          <Label layoutX="426.0" layoutY="108.0" text="Age" />
+                                          <Label layoutX="72.0" layoutY="186.0" text="Phone" />
+                                          <Label layoutX="249.0" layoutY="186.0" text="Email" />
+                                          <Label layoutX="525.0" layoutY="108.0" text="Address" />
+                                          <TextField fx:id="txtName" layoutX="72.0" layoutY="141.0" promptText=". . ." />
+                                          <TextField fx:id="txtLastname" layoutX="245.0" layoutY="141.0" promptText=". . ." />
+                                          <TextField fx:id="txtAge" layoutX="426.0" layoutY="141.0" prefHeight="25.0" prefWidth="51.0" promptText="0-140" />
+                                          <TextField fx:id="txtAddress" layoutX="517.0" layoutY="141.0" promptText="000 WayName Street" />
+                                          <TextField fx:id="txtEmail" layoutX="245.0" layoutY="218.0" promptText="example@gmail.com" />
+                                          <TextField fx:id="txtPhone" layoutX="73.0" layoutY="218.0" prefHeight="25.0" prefWidth="148.0" promptText="+00 3456789123" />
+                                          <TextField fx:id="txtPassword" layoutX="72.0" layoutY="295.0" promptText="Password" />
+                                          <Label layoutX="75.0" layoutY="266.0" text="Password" />
+                                          <Button fx:id="btnConfirm" layoutX="582.0" layoutY="308.0" mnemonicParsing="false" onMouseClicked="#onClickConfirmUserConfig" prefHeight="32.0" prefWidth="90.0" stylesheets="@../css/color.css" text="Confirm" textFill="WHITE">
+                                             <effect>
+                                                <DropShadow height="4.0" radius="1.5" width="4.0" />
+                                             </effect>
+                                          </Button>
+                                          <ImageView layoutX="13.0" layoutY="14.0">
+                                             <image>
+                                                <Image url="@../icons/userConfigLogo.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label layoutX="57.0" layoutY="17.0" text="User Configuration">
+                                             <font>
+                                                <Font name="MS Reference Sans Serif" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <ImageView fitHeight="18.0" fitWidth="15.0" layoutX="651.0" layoutY="315.0">
+                                             <image>
+                                                <Image url="@../icons/userConfigSave.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                       <GridPane.margin>
+                                          <Insets bottom="50.0" left="50.0" right="50.0" top="23.0" />
+                                       </GridPane.margin>
+                                    </Pane>
                                  </children>
                               </GridPane>
                            </children>
@@ -382,6 +423,19 @@
                         <FontAwesomeIconView glyphName="FOLDER_ALT" size="18.0">
                            <GridPane.margin>
                               <Insets left="8.0" />
+                           </GridPane.margin>
+                        </FontAwesomeIconView>
+                        <Label fx:id="labelProfile" text="Profile" textFill="#908f8f">
+                           <GridPane.margin>
+                              <Insets left="655.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <FontAwesomeIconView fill="#8d8d8d" glyphName="USER">
+                           <GridPane.margin>
+                              <Insets left="640.0" />
                            </GridPane.margin>
                         </FontAwesomeIconView>
                      </children>
