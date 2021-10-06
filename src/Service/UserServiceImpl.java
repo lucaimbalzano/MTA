@@ -278,7 +278,6 @@ public class UserServiceImpl implements IUserService {
             }finally{
                     try{
                         if(conn!=null){
-                            conn.rollback();
                             conn.close();
                         }
                     }catch (SQLException e){
@@ -314,7 +313,6 @@ public class UserServiceImpl implements IUserService {
         }finally{
             try{
                 if(conn!=null){
-                    conn.rollback();
                     conn.close();
                 }
             }catch (SQLException e){

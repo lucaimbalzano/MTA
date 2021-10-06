@@ -408,7 +408,7 @@
                                           </ImageView>
                                        </children>
                                        <GridPane.margin>
-                                          <Insets bottom="50.0" left="50.0" right="50.0" top="23.0" />
+                                          <Insets bottom="51.0" left="50.0" right="50.0" top="5.0" />
                                        </GridPane.margin>
                                     </Pane>
                                  </children>

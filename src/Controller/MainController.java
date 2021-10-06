@@ -3,6 +3,7 @@ package Controller;
 import Connections.DatabaseConnections;
 
 
+import Encryptor.Encryptor;
 import Service.UserServiceImpl;
 import Session.UserSession;
 import Utility.Utility;
@@ -88,10 +89,11 @@ public class MainController implements Initializable {
     private ObservableList<User> data;
     String oldEmail;
     Double xCordinate, yCordinate;
+    Encryptor encryptor = new Encryptor();
     UserConfigController userConfigController = new UserConfigController();
     DatabaseConnections databaseConnections = new DatabaseConnections();
     Connection conn = databaseConnections.getConnection();
-     Utility utility = Utility.getUtilityIntance();
+    Utility utility = Utility.getUtilityIntance();
     UserServiceImpl userServiceImpl = new UserServiceImpl();
     LoginController loginController = new LoginController();
     UserSession session = UserSession.getInstanceUserSession();
@@ -261,7 +263,7 @@ public class MainController implements Initializable {
                     txtAge,
                     new TextField("") ,
                     txtEmail.getText(),
-                    txtPassword.getText());
+                    encryptor.encryptString(txtPassword.getText()));
            if(userServiceImpl.updateUser(id,userConfig.getUser())){
                  if(userServiceImpl.updateLogin(oldEmail,userConfig.getLogin()))
                         utility.showAlertErrorPublic(Alert.AlertType.CONFIRMATION, owner, "MTA[✅]          Success!",
