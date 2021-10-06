@@ -1,5 +1,6 @@
 package Service;
 
+import model.Login;
 import model.User;
 
 public interface IUserService {
@@ -17,5 +18,9 @@ public interface IUserService {
     public Integer getUserIdByEmail(String email);
 
     public User getUserById(Integer id);
+
+    public Boolean updateUser(Integer id,User u);
+
+    public Boolean updateLogin(String email,Login l);
 
 }

@@ -4,6 +4,7 @@ import Connections.DatabaseConnections;
 import javafx.collections.FXCollections;
 import javafx.scene.control.Alert;
 import javafx.stage.FileChooser;
+import model.Login;
 import model.User;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
@@ -255,6 +256,77 @@ public class UserServiceImpl implements IUserService {
         logger.debug("### User data not exist ###");
         return null;
     }
+
+    @Override
+    public Boolean updateUser(Integer id, User u) {
+        String preparedSql = "UPDATE USER SET name= '"+u.getName()+"' , lastname= '"+u.getLastname()+"' WHERE id= "+id+"";
+            int result = 0;
+            int cont = 0 ;
+            PreparedStatement preparedStmt = null;
+            DatabaseConnections databaseConnections = new DatabaseConnections();
+            Connection conn = databaseConnections.getConnection();
+            Statement stmt = null;
+        try {
+               stmt = conn.createStatement();
+               stmt.executeUpdate(preparedSql);
+               logger.debug("### User Update Successfully ###");
+               return true;
+            } catch (Exception e) {
+                logger.debug("### Error occured inside updateUser(): " + e.getMessage() + " ###");
+                e.printStackTrace();
+                logger.debug("### End stackTraceError ###");
+            }finally{
+                    try{
+                        if(conn!=null){
+                            conn.rollback();
+                            conn.close();
+                        }
+                    }catch (SQLException e){
+                        logger.debug("### Error occured inside updateUser(): " + e.getMessage() + " ###");
+                        e.printStackTrace();
+                        logger.debug("### End stackTraceError ###");
+                    }
+            }
+            logger.debug("### Error while adding the Login ###");
+            return false;
+        }
+
+
+
+    @Override
+    public Boolean updateLogin(String email, Login l) {
+        String preparedSql = "UPDATE LOGIN SET email= '"+l.getEmail()+"' , password= '"+l.getPassword()+"' WHERE email= '"+email+"'";
+        int result = 0;
+        int cont = 0 ;
+        PreparedStatement preparedStmt = null;
+        DatabaseConnections databaseConnections = new DatabaseConnections();
+        Connection conn = databaseConnections.getConnection();
+        Statement stmt = null;
+        try {
+            stmt = conn.createStatement();
+            stmt.executeUpdate(preparedSql);
+            logger.debug("### User Update Successfully ###");
+            return true;
+        } catch (Exception e) {
+            logger.debug("### Error occured inside updateLogin(): " + e.getMessage() + " ###");
+            e.printStackTrace();
+            logger.debug("### End stackTraceError ###");
+        }finally{
+            try{
+                if(conn!=null){
+                    conn.rollback();
+                    conn.close();
+                }
+            }catch (SQLException e){
+                logger.debug("### Error occured inside updateLogin(): " + e.getMessage() + " ###");
+                e.printStackTrace();
+                logger.debug("### End stackTraceError ###");
+            }
+        }
+        logger.debug("### Error while adding the Login ###");
+        return false;
+    }
+
 
 
     private void printStackTrace(Exception e){

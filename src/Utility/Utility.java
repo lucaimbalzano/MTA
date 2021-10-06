@@ -52,8 +52,8 @@ public class Utility {
 
     public User setNewUserByTxtForm(TextField txtLastname,TextField txtName,TextField txtPrefix,TextField txtPhone,TextField txtAddress,TextField txtAge ,TextField txtAction){
         User user = new User();
-        String x = txtName.getText();
-        user.setName(x);
+
+        user.setName(txtName.getText());
         user.setLastname(txtLastname.getText());
         user.setPhone(txtPrefix.getText()+txtPhone.getText());
         user.setAction(txtAction.getText());
@@ -62,10 +62,18 @@ public class Utility {
         return user;
     }
 
-    public UserConfiguration getUserConfigByAllTxtFields(TextField txtLastname,TextField txtName,TextField txtPhone,TextField txtAddress,TextField txtAge ,TextField txtAction, String email, String password){
+    public UserConfiguration getUserConfigByAllTxtFields(TextField txtLastname,
+                                                         TextField txtName,
+                                                         TextField txtPhone,
+                                                         TextField txtAddress,
+                                                         TextField txtAge ,
+                                                         TextField txtAction,
+                                                         String email,
+                                                         String password){
+        UserConfiguration uConfig = new UserConfiguration();
         try{
-            UserConfiguration uConfig = new UserConfiguration();
-            uConfig.setUser(setNewUserByTxtForm(txtLastname,txtName,new TextField(""),txtPhone,txtAddress,txtAge,txtAction));
+           // User user = setNewUserByTxtForm(txtLastname,txtName,new TextField(""),txtPhone,txtAddress,txtAge,txtAction);
+            uConfig.setUser(new User(txtName.getText(),txtLastname.getText(),txtAge.getText(), txtAddress.getText(),txtPhone.getText(),"",""));
             Login login = new Login();
             login.setEmail(email);
             login.setPassword(password);

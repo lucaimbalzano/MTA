@@ -2,24 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be845eb6-cf03-4782-aead-216876fbebcd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/ProfileController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/UserConfigController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Session/UserSession.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/icons/userConfigLogo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/icons/userConfigSave.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Login.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/UserConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AddUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AddUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegistrationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/IUserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Utility/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utility/Utility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/color.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/color.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fxml/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +94,7 @@
       <workItem from="1633274194615" duration="4966000" />
       <workItem from="1633340642355" duration="12046000" />
       <workItem from="1633418240744" duration="22773000" />
-      <workItem from="1633504368804" duration="12011000" />
+      <workItem from="1633504368804" duration="19015000" />
     </task>
     <task id="LOCAL-00001" summary="## Connection Database Mysql&#10;## Show Table content">
       <created>1632910398954</created>
@@ -214,7 +201,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633468802555</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="## UserConfiguration.java">
+      <created>1633520248954</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1633520248954</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,7 +230,8 @@
     <MESSAGE value="## getLastId(), signupUser()" />
     <MESSAGE value="## RegistrationController.java" />
     <MESSAGE value="## LoginController.java, LoginUser" />
-    <option name="LAST_COMMIT_MESSAGE" value="## LoginController.java, LoginUser" />
+    <MESSAGE value="## UserConfiguration.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="## UserConfiguration.java" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="198" key="#Project_Structure" timestamp="1632997123783">
@@ -247,10 +242,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="552" y="198" key="#SQL_Dialects/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1632989629023" />
-    <state x="765" y="249" key="#com.intellij.ide.util.MemberChooser" timestamp="1633519132156">
+    <state x="765" y="249" key="#com.intellij.ide.util.MemberChooser" timestamp="1633523028237">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="765" y="249" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633519132156" />
+    <state x="765" y="249" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633523028237" />
     <state x="765" y="249" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1633517346126" />
     <state x="779" y="231" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1633081706548">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -264,10 +259,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="690" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633289230153" />
-    <state x="585" y="134" width="749" height="613" key="CommitChangelistDialog2" timestamp="1633468801267">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="-1163" y="219" width="749" height="613" key="CommitChangelistDialog2" timestamp="1633520247742">
+      <screen x="-1440" y="95" width="1440" height="900" />
     </state>
-    <state x="-1163" y="219" width="749" height="613" key="CommitChangelistDialog2/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633090354930" />
+    <state x="-1163" y="219" width="749" height="613" key="CommitChangelistDialog2/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633520247742" />
     <state x="585" y="134" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1633468801267" />
     <state width="470" height="466" key="DebuggerActiveHint" timestamp="1633466001882">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -282,45 +277,45 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="657" y="283" key="FileChooserDialogImpl/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633081533293" />
-    <state width="1861" height="248" key="GridCell.Tab.0.bottom" timestamp="1633519489624">
+    <state width="1876" height="384" key="GridCell.Tab.0.bottom" timestamp="1633528862558">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1861" height="248" key="GridCell.Tab.0.bottom/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633519489624" />
+    <state width="1876" height="384" key="GridCell.Tab.0.bottom/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633528862558" />
     <state width="1861" height="248" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1633518535775" />
-    <state width="1861" height="248" key="GridCell.Tab.0.center" timestamp="1633519489624">
+    <state width="1876" height="384" key="GridCell.Tab.0.center" timestamp="1633528862558">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1861" height="248" key="GridCell.Tab.0.center/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633519489624" />
+    <state width="1876" height="384" key="GridCell.Tab.0.center/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633528862558" />
     <state width="1861" height="248" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1633518535775" />
-    <state width="1861" height="248" key="GridCell.Tab.0.left" timestamp="1633519489624">
+    <state width="1876" height="384" key="GridCell.Tab.0.left" timestamp="1633528862558">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1861" height="248" key="GridCell.Tab.0.left/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633519489624" />
+    <state width="1876" height="384" key="GridCell.Tab.0.left/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633528862558" />
     <state width="1861" height="248" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1633518535775" />
-    <state width="1861" height="248" key="GridCell.Tab.0.right" timestamp="1633519489624">
+    <state width="1876" height="384" key="GridCell.Tab.0.right" timestamp="1633528862558">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1861" height="248" key="GridCell.Tab.0.right/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633519489624" />
+    <state width="1876" height="384" key="GridCell.Tab.0.right/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633528862558" />
     <state width="1861" height="248" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1633518535775" />
-    <state width="1861" height="451" key="GridCell.Tab.1.bottom" timestamp="1633514272634">
+    <state width="1876" height="384" key="GridCell.Tab.1.bottom" timestamp="1633528862558">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1876" height="363" key="GridCell.Tab.1.bottom/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633420342282" />
+    <state width="1876" height="384" key="GridCell.Tab.1.bottom/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633528862558" />
     <state width="1861" height="451" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1633514272634" />
-    <state width="1861" height="451" key="GridCell.Tab.1.center" timestamp="1633514272633">
+    <state width="1876" height="384" key="GridCell.Tab.1.center" timestamp="1633528862558">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1876" height="363" key="GridCell.Tab.1.center/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633420342282" />
+    <state width="1876" height="384" key="GridCell.Tab.1.center/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633528862558" />
     <state width="1861" height="451" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1633514272633" />
-    <state width="1861" height="451" key="GridCell.Tab.1.left" timestamp="1633514272633">
+    <state width="1876" height="384" key="GridCell.Tab.1.left" timestamp="1633528862558">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1876" height="363" key="GridCell.Tab.1.left/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633420342282" />
+    <state width="1876" height="384" key="GridCell.Tab.1.left/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633528862558" />
     <state width="1861" height="451" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1633514272633" />
-    <state width="1861" height="451" key="GridCell.Tab.1.right" timestamp="1633514272634">
+    <state width="1876" height="384" key="GridCell.Tab.1.right" timestamp="1633528862558">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1876" height="363" key="GridCell.Tab.1.right/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633420342282" />
+    <state width="1876" height="384" key="GridCell.Tab.1.right/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633528862558" />
     <state width="1861" height="451" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1633514272634" />
     <state x="431" y="116" key="SettingsEditor" timestamp="1633081535955">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -330,10 +325,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633347618324" />
-    <state x="552" y="261" key="Vcs.Push.Dialog.v2" timestamp="1633468807265">
+    <state x="552" y="261" key="Vcs.Push.Dialog.v2" timestamp="1633520252428">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="552" y="261" key="Vcs.Push.Dialog.v2/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633090363639" />
+    <state x="552" y="261" key="Vcs.Push.Dialog.v2/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633520252428" />
     <state x="552" y="261" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1633468807265" />
     <state x="648" y="366" key="com.intellij.ide.util.TipDialog" timestamp="1633504413410">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -349,10 +344,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="591" y="237" width="737" height="606" key="find.popup/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633344221400" />
-    <state x="616" y="250" key="run.anything.popup" timestamp="1633519088913">
+    <state x="616" y="250" key="run.anything.popup" timestamp="1633528759780">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="616" y="250" key="run.anything.popup/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633519088913" />
+    <state x="616" y="250" key="run.anything.popup/0.0.1920.1080/-1440.95.1440.900@0.0.1920.1080" timestamp="1633528759780" />
     <state x="616" y="250" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1633465491566" />
     <state x="618" y="254" width="672" height="678" key="search.everywhere.popup" timestamp="1633519111771">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -365,12 +360,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Service/UserServiceImpl.java</url>
-          <line>80</line>
+          <line>81</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Service/UserServiceImpl.java</url>
-          <line>77</line>
+          <line>78</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -379,34 +374,52 @@
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Utility/Utility.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Utility/Utility.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Service/UserServiceImpl.java</url>
-          <line>118</line>
+          <line>119</line>
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Controller/LoginController.java</url>
-          <line>142</line>
-          <option name="timeStamp" value="52" />
+          <url>file://$PROJECT_DIR$/src/Service/UserServiceImpl.java</url>
+          <line>297</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Utility/Utility.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Utility/Utility.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Utility/Utility.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Service/UserServiceImpl.java</url>
+          <line>298</line>
+          <option name="timeStamp" value="70" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Controller/MainController.java</url>
-          <line>140</line>
-          <option name="timeStamp" value="53" />
+          <line>265</line>
+          <option name="timeStamp" value="71" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Controller/LoginController.java</url>
-          <line>79</line>
-          <option name="timeStamp" value="55" />
+          <url>file://$PROJECT_DIR$/src/Service/UserServiceImpl.java</url>
+          <line>290</line>
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Service/UserServiceImpl.java</url>
+          <line>118</line>
+          <properties class="Service.UserServiceImpl" method="signupUser">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="56" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

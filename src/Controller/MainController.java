@@ -3,7 +3,9 @@ package Controller;
 import Connections.DatabaseConnections;
 
 
+import Service.UserServiceImpl;
 import Session.UserSession;
+import Utility.Utility;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.animation.Animation;
 import javafx.animation.RotateTransition;
@@ -35,14 +37,16 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.prefs.Preferences;
 
+import javafx.stage.Window;
 import javafx.util.Duration;
 import model.User;
+import model.UserConfiguration;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
 public class MainController implements Initializable {
      @FXML
-    private Button btnReports, btnChats, btnLogs, btnTasks, btnProjects ,btnUsers, btnProfile;
+    private Button btnReports, btnChats, btnLogs, btnTasks, btnProjects ,btnUsers, btnProfile,btnConfirm;
 
     @FXML
     private GridPane pnChats, pnTable ,pnTasks, pnProjects, pnProfile, pnReports, pnLogs;
@@ -82,10 +86,13 @@ public class MainController implements Initializable {
     private FontAwesomeIconView iconRefreshTable;
 
     private ObservableList<User> data;
+    String oldEmail;
     Double xCordinate, yCordinate;
     UserConfigController userConfigController = new UserConfigController();
     DatabaseConnections databaseConnections = new DatabaseConnections();
     Connection conn = databaseConnections.getConnection();
+     Utility utility = Utility.getUtilityIntance();
+    UserServiceImpl userServiceImpl = new UserServiceImpl();
     LoginController loginController = new LoginController();
     UserSession session = UserSession.getInstanceUserSession();
     String query = "SELECT * FROM user";
@@ -136,9 +143,6 @@ public class MainController implements Initializable {
         }
         if(event.getSource() == btnProfile){
             lblPathIndex.setText("Home/Profile");
-//            String x = loginController.getTxtEmail();
-//            System.out.println(x);
-//            labelProfile.setText("Ciao");
             pnProfile.toFront();
         }
         if(event.getSource() == btnChats){
@@ -246,6 +250,34 @@ public class MainController implements Initializable {
 
     @FXML
     void onClickConfirmUserConfig(MouseEvent event) {
+        Window owner = btnConfirm.getScene().getWindow();
+
+        try{
+            Integer id = userServiceImpl.getUserIdByEmail(oldEmail);
+            UserConfiguration userConfig = utility.getUserConfigByAllTxtFields(txtLastname,
+                    txtName,
+                    txtPhone,
+                    txtAddress,
+                    txtAge,
+                    new TextField("") ,
+                    txtEmail.getText(),
+                    txtPassword.getText());
+           if(userServiceImpl.updateUser(id,userConfig.getUser())){
+                 if(userServiceImpl.updateLogin(oldEmail,userConfig.getLogin()))
+                        utility.showAlertErrorPublic(Alert.AlertType.CONFIRMATION, owner, "MTA[✅]          Success!",
+                                "Data User updated! ✅ ", event);
+           }else{
+                utility.showAlertErrorPublic(Alert.AlertType.ERROR, owner, "MTA[❌]          Error Occurred!",
+                        "Error while updating! ⛔", event);
+           }
+
+
+        }catch (Exception e){
+            logger.debug(" ### Exception Occurred: "+e.getMessage()+" ###");
+            e.printStackTrace();
+            logger.debug(" ### End StackTraceException ###");
+        }
+
 
     }
 
@@ -273,6 +305,7 @@ public class MainController implements Initializable {
 
     public void setUserConfigurationTxtFields(User u, String email,String password){
         userConfigController.setTxtFields(u, txtName,txtLastname,txtAge,txtAddress, txtPhone, txtEmail,txtPassword, email,password);
+        oldEmail = email;
     }
 
 
