@@ -3,7 +3,7 @@
  
  <img src="https://your-image-url.type" width="100" height="100">
  
- MTA福 - Desktop Application
+ MTA福 - Management Tool Application
 
   <img alt="java" src="https://img.shields.io/badge/-Java-DD0031?style=flat-square&logo=java&logoColor=white" /> <img alt="javaFx" src="https://img.shields.io/badge/-javaFx-CB3837?style=flat-square&logo=javaFx&logoColor=white" />
   <img alt="SceneBuilder" src="https://img.shields.io/badge/-SceneBuilder-E34F26?style=flat-square&logo=SceneBuilder&logoColor=white" />
@@ -13,23 +13,58 @@
 
 
 ## Preview📌
-![image](https://user-images.githubusercontent.com/45575898/134182882-e174b9fb-d351-414d-a55d-adc3b12915aa.png)
+![image](https://user-images.githubusercontent.com/45575898/136366466-4a55e8d3-5334-4c54-8db4-2e9d8fe32163.png)
+![image](https://user-images.githubusercontent.com/45575898/136367004-baced1fa-6cf0-4e2c-80db-168552e9b686.png)
 
 
-![Dashboard — Firefox Developer Edition 2021-09-21 15-44-42](https://user-images.githubusercontent.com/45575898/134182650-1c26f1e3-f8dc-4601-b203-4571b87f8c20.gif)
-
-![Dashboard — Firefox Developer Edition 2021-09-21 15-39-50 (online-video-cutter com)](https://user-images.githubusercontent.com/45575898/134181860-5c6e2f4c-0bfb-4eff-ad23-86f8b8700f23.gif)
+![image](https://user-images.githubusercontent.com/45575898/136366756-31771284-66f7-4223-a789-4163bcdf31e0.png)
 
 
+![image](https://user-images.githubusercontent.com/45575898/136366578-0d982173-b0cd-4466-b625-c760c8442e95.png)
+![image](https://user-images.githubusercontent.com/45575898/136366917-072f7ea2-f06f-4db9-ad59-b7021c60842f.png)
 
-## Installation📌
-Run `npm install` to install all the dependencies
 
 ## Description📌
-I used https://material.angular.io/ as pre-styled components.
-I nested a two module where the default.module.ts is the main one. I built first the template where step-by-step i added what i needed.
-I used Mock-Data to display some values, it's just the User-Interface part.
+Management Tool Application, to take trace about porject , task an proper personnel.
+I used MD5 as Encryption password , you can find here https://github.com/lucaimbalzano/MTA/blob/main/src/Encryptor/Encryptor.java
+I build the application by using SceneBuilder (https://gluonhq.com/products/scene-builder/), i managed the controller calling a service to dialog with the database(Mysql).
 
+## Dependencies📌
+![image](https://user-images.githubusercontent.com/45575898/136367170-27373b17-420d-41ee-909a-634a96167c37.png)
+
+## Project Tree📌
+```
+MTA福
+├───.idea
+├───out
+│   └───production
+│       ├───ManagementToolApplication
+│       │   ├───css
+│       │   ├───fxml
+│       │   └───icons
+│       └───MTA
+│           ├───Connections
+│           ├───Controller
+│           ├───css
+│           ├───Encryptor
+│           ├───fxml
+│           ├───icons
+│           ├───model
+│           ├───Service
+│           ├───Session
+│           └───Utility
+└───src
+    ├───Connections
+    ├───Controller
+    ├───css
+    ├───Encryptor
+    ├───fxml
+    ├───icons
+    ├───model
+    ├───Service
+    ├───Session
+    └───Utility
+```
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Made with ❤ by ![](https://img.shields.io/badge/luca-informational?style=flat&logo=#DD0031&logoColor=white&color=2bbc8a)![](https://img.shields.io/badge/Imbalzano-informational?style=flat&logo=&logoColor=white&color=2bbc8a)
