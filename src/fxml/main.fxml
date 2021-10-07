@@ -5,11 +5,15 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
@@ -23,6 +27,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <GridPane alignment="center" hgap="10" stylesheets="@../css/Styling.css" vgap="10" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
@@ -322,10 +327,111 @@
                                     <RowConstraints maxHeight="483.0" minHeight="10.0" prefHeight="469.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <Label fx:id="lblProjects" text="Projects" GridPane.rowIndex="1" />
+                                    <Pane layoutY="500.0" prefHeight="200.0" prefWidth="200.0">
+                                       <children>
+                                          <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../icons/project.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label layoutX="59.0" layoutY="17.0" text="Project">
+                                             <font>
+                                                <Font name="Webdings" size="19.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="129.0" layoutY="18.0" text="Name">
+                                             <font>
+                                                <Font name="Webdings" size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <Pane layoutX="42.0" layoutY="97.0" prefHeight="200.0" prefWidth="127.0" style="-fx-background-color: #a8c271;">
+                                             <children>
+                                                <TextArea fx:id="txtAreaWorkflow" layoutX="14.0" layoutY="36.0" prefHeight="130.0" prefWidth="98.0" stylesheets="@../css/color.css" />
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutX="177.0" layoutY="97.0" prefHeight="200.0" prefWidth="127.0" style="-fx-background-color: #afc386;">
+                                             <children>
+                                                <TextArea fx:id="txtAreaObjective" layoutX="15.0" layoutY="35.0" prefHeight="130.0" prefWidth="98.0" stylesheets="@../css/color.css" />
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutX="311.0" layoutY="97.0" prefHeight="200.0" prefWidth="127.0" style="-fx-background-color: #bac79d;">
+                                             <children>
+                                                <TextArea fx:id="txtAreaTime" layoutX="15.0" layoutY="35.0" prefHeight="130.0" prefWidth="98.0" stylesheets="@../css/color.css" />
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutX="446.0" layoutY="97.0" prefHeight="200.0" prefWidth="127.0" style="-fx-background-color: #c1c8b1;">
+                                             <children>
+                                                <TextArea fx:id="txtAreaBudget" layoutX="15.0" layoutY="35.0" prefHeight="130.0" prefWidth="98.0" stylesheets="@../css/color.css" />
+                                             </children>
+                                          </Pane>
+                                          <Pane prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Circle fill="#a8c271" layoutX="108.0" layoutY="81.0" radius="28.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                                <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="91.0" layoutY="64.0">
+                                                   <image>
+                                                      <Image url="@../icons/workflow.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label layoutX="80.0" layoutY="109.0" text="Workflow">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutX="135.0" layoutY="-3.0" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Circle fill="#a8c271" layoutX="108.0" layoutY="81.0" radius="28.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                                <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="94.0" layoutY="68.0">
+                                                   <image>
+                                                      <Image url="@../icons/object.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label layoutX="80.0" layoutY="109.0" text="Objective">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutX="270.0" layoutY="-3.0" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Circle fill="#bac79d" layoutX="108.0" layoutY="81.0" radius="28.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                                <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="94.0" layoutY="68.0">
+                                                   <image>
+                                                      <Image url="@../icons/time.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label layoutX="60.0" layoutY="109.0" text=" Time Scheduler">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <Pane layoutX="401.0" prefHeight="200.0" prefWidth="200.0">
+                                             <children>
+                                                <Circle fill="#c1c8b1" layoutX="108.0" layoutY="81.0" radius="28.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                                <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="94.0" layoutY="68.0">
+                                                   <image>
+                                                      <Image url="@../icons/budget.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label layoutX="65.0" layoutY="107.0" text="Budget Details">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </Pane>
                                  </children>
+                                 <padding>
+                                    <Insets top="50.0" />
+                                 </padding>
                               </GridPane>
-                              <GridPane fx:id="pnTasks" style="-fx-background-color: #ffff;">
+                              <GridPane fx:id="pnTasks" prefHeight="501.0" prefWidth="820.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                  </columnConstraints>
@@ -334,9 +440,48 @@
                                     <RowConstraints maxHeight="483.0" minHeight="10.0" prefHeight="469.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <Label fx:id="lblTasks" text="Tasks" GridPane.rowIndex="1" />
+                                    <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                       <children>
+                                          <TreeTableView layoutX="166.0" layoutY="88.0" prefHeight="275.0" prefWidth="485.0">
+                                             <columns>
+                                                <TreeTableColumn prefWidth="99.0" text="Task Id" />
+                                                <TreeTableColumn text="Server" />
+                                                <TreeTableColumn prefWidth="134.0" text="Description" />
+                                                <TreeTableColumn prefWidth="82.0" text="Severity" />
+                                                <TreeTableColumn prefWidth="89.0" text="State" />
+                                             </columns>
+                                          </TreeTableView>
+                                          <TextField layoutX="166.0" layoutY="46.0" prefHeight="25.0" prefWidth="101.0" promptText="Task Id" />
+                                          <TextField layoutX="274.0" layoutY="46.0" prefHeight="35.0" prefWidth="69.0" promptText="Server" />
+                                          <TextField layoutX="352.0" layoutY="46.0" prefHeight="35.0" prefWidth="126.0" promptText="Description" />
+                                          <TextField layoutX="485.0" layoutY="46.0" prefHeight="35.0" prefWidth="69.0" promptText="Severity" />
+                                          <TextField layoutX="563.0" layoutY="46.0" prefHeight="35.0" prefWidth="69.0" promptText="State" />
+                                          <ImageView fitHeight="35.0" fitWidth="41.0" layoutX="64.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../icons/addBug.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="35.0" fitWidth="41.0" layoutX="64.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../icons/editBug.png" />
+                                             </image>
+                                          </ImageView>
+                                          <ProgressBar layoutX="167.0" layoutY="376.0" prefHeight="18.0" prefWidth="485.0" progress="0.0" />
+                                          <ImageView fitHeight="35.0" fitWidth="41.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../icons/taskConfig.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label layoutX="55.0" layoutY="14.0" text="Task and Bug Fix">
+                                             <font>
+                                                <Font name="Calisto MT Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </Pane>
                                  </children>
                               </GridPane>
+
                               <GridPane fx:id="pnReports" style="-fx-background-color: #ffff;">
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

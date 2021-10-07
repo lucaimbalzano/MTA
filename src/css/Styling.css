@@ -31,6 +31,13 @@ VBox{
 }
 
 
+/*CIRCLE PANE*/
+#circlePane {
+    -fx-background-color:  #fa5043;
+    -fx-border-radius: 5;
+}
+
+
 #btn_members:pressed {
     -fx-background-color: #494747;
     -fx-text-fill: white;
