@@ -1,8 +1,6 @@
 ![image](https://user-images.githubusercontent.com/45575898/136365602-a8906757-c5f2-44ab-8004-b9058f2e6883.png)
  
  
- <img src="https://your-image-url.type" width="100" height="100">
- 
  MTA福 - Management Tool Application
 
   <img alt="java" src="https://img.shields.io/badge/-Java-DD0031?style=flat-square&logo=java&logoColor=white" /> <img alt="javaFx" src="https://img.shields.io/badge/-javaFx-CB3837?style=flat-square&logo=javaFx&logoColor=white" />
