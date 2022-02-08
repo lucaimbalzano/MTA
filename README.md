@@ -27,9 +27,6 @@ Management Tool Application, to take trace about porject , task an proper person
 I used MD5 as Encryption password , you can find here https://github.com/lucaimbalzano/MTA/blob/main/src/Encryptor/Encryptor.java
 I build the application by using SceneBuilder (https://gluonhq.com/products/scene-builder/), i managed the controller calling a service to dialog with the database(Mysql).
 
-## Dependencies📌
-![image](https://user-images.githubusercontent.com/45575898/136367170-27373b17-420d-41ee-909a-634a96167c37.png)
-
 ## Project Tree📌
 ```
 MTA福
